@@ -1,0 +1,520 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<definitions id="Definition"
+             targetNamespace="http://www.jboss.org/drools"
+             typeLanguage="http://www.java.com/javaTypes"
+             expressionLanguage="http://www.mvel.org/2.0"
+             xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd"
+             xmlns:g="http://www.jboss.org/drools/flow/gpd"
+             xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+             xmlns:dc="http://www.omg.org/spec/DD/20100524/DC"
+             xmlns:di="http://www.omg.org/spec/DD/20100524/DI"
+             xmlns:tns="http://www.jboss.org/drools">
+
+  <itemDefinition id="_taskResult" structureRef="Integer" />
+  <itemDefinition id="null" />
+  <itemDefinition id="_anyBadDebt" />
+  <itemDefinition id="_Loan24OverdueTerm" />
+  <itemDefinition id="_anyLoan" />
+  <itemDefinition id="_anyCreditCard" />
+  <itemDefinition id="_CC12OverdueTerm" />
+  <itemDefinition id="_CC24OverdueTerm" />
+  <itemDefinition id="_CCCurrentOverdueTerm" />
+  <itemDefinition id="_CCNoOverdueTerm" />
+
+  <process processType="Private" isExecutable="true" id="sample2" name="Hello World" >
+
+    <!-- process variables -->
+    <property id="anyPBOC" itemSubjectRef="null"/>
+    <property id="anyBadDebt" itemSubjectRef="null"/>
+    <property id="Loan24OverdueTerm" itemSubjectRef="null"/>
+    <property id="anyLoan" itemSubjectRef="null"/>
+    <property id="anyCreditCard" itemSubjectRef="null"/>
+    <property id="CC12OverdueTerm" itemSubjectRef="null"/>
+    <property id="CC24OverdueTerm" itemSubjectRef="null"/>
+    <property id="CCCurrentOverdueTerm" itemSubjectRef="null"/>
+    <property id="CCNoOverdueTerm" itemSubjectRef="null"/>
+
+    <!-- nodes -->
+    <scriptTask id="_2" name="No PBOC, level=3" >
+      <script>System.out.println(kcontext.getNodeInstance().getNodeName() ); </script>
+    </scriptTask>
+    <startEvent id="_1"  isInterrupting="true">
+    </startEvent>
+    <endEvent id="_3" >
+        <terminateEventDefinition />
+    </endEvent>
+    <exclusiveGateway id="_jbpm-unique-4" name="anyPBOC" gatewayDirection="Diverging" >
+    </exclusiveGateway>
+    <exclusiveGateway id="_jbpm-unique-18" name="anyBadDebt" gatewayDirection="Diverging" >
+    </exclusiveGateway>
+    <exclusiveGateway id="_jbpm-unique-20" name="Loan24OverdueTerm" gatewayDirection="Diverging" >
+    </exclusiveGateway>
+    <scriptTask id="_jbpm-unique-21" name="no info" >
+      <script>System.out.println(kcontext.getNodeInstance().getNodeName() ); </script>
+    </scriptTask>
+    <exclusiveGateway id="_jbpm-unique-22" name="CC12OverdueTerm" gatewayDirection="Diverging" >
+    </exclusiveGateway>
+    <scriptTask id="_jbpm-unique-24" name="&gt;=2" >
+      <script>System.out.println(kcontext.getNodeInstance().getNodeName() ); </script>
+    </scriptTask>
+    <endEvent id="_jbpm-unique-25" name="End" >
+        <terminateEventDefinition />
+    </endEvent>
+    <endEvent id="_jbpm-unique-26" name="End" >
+        <terminateEventDefinition />
+    </endEvent>
+    <scriptTask id="_jbpm-unique-28" name="&gt;=2" >
+      <script>System.out.println(kcontext.getNodeInstance().getNodeName() ); </script>
+    </scriptTask>
+    <scriptTask id="_jbpm-unique-27" name="&lt;2 or no info" >
+      <script>System.out.println(kcontext.getNodeInstance().getNodeName() ); </script>
+    </scriptTask>
+    <endEvent id="_jbpm-unique-30" name="End" >
+        <terminateEventDefinition />
+    </endEvent>
+    <endEvent id="_jbpm-unique-29" name="End" >
+        <terminateEventDefinition />
+    </endEvent>
+    <exclusiveGateway id="_jbpm-unique-34" name="anyCreditCard" gatewayDirection="Diverging" >
+    </exclusiveGateway>
+    <exclusiveGateway id="_jbpm-unique-33" name="anyLoan" gatewayDirection="Diverging" >
+    </exclusiveGateway>
+    <scriptTask id="_jbpm-unique-36" name="No Credit Card, level=3" >
+      <script>System.out.println(kcontext.getNodeInstance().getNodeName() ); </script>
+    </scriptTask>
+    <exclusiveGateway id="_jbpm-unique-35" name="anyCurrentOverdue" gatewayDirection="Diverging" >
+    </exclusiveGateway>
+    <endEvent id="_jbpm-unique-38" name="End" >
+        <terminateEventDefinition />
+    </endEvent>
+    <exclusiveGateway id="_jbpm-unique-37" name="CC24OverdueTerm" gatewayDirection="Diverging" >
+    </exclusiveGateway>
+    <exclusiveGateway id="_jbpm-unique-40" name="CCCurrentOverdueTerm" gatewayDirection="Diverging" >
+    </exclusiveGateway>
+    <exclusiveGateway id="_jbpm-unique-39" name="CCNoOverdueTerm" gatewayDirection="Diverging" >
+    </exclusiveGateway>
+    <scriptTask id="_jbpm-unique-42" name="&lt;=16, level3" >
+      <script>System.out.println(kcontext.getNodeInstance().getNodeName() ); </script>
+    </scriptTask>
+    <exclusiveGateway id="_jbpm-unique-41" name="CCCurrentOverdueTerm" gatewayDirection="Diverging" >
+    </exclusiveGateway>
+    <endEvent id="_jbpm-unique-44" name="End" >
+        <terminateEventDefinition />
+    </endEvent>
+    <scriptTask id="_jbpm-unique-43" name="&gt;16, level2" >
+      <script>System.out.println(kcontext.getNodeInstance().getNodeName() ); </script>
+    </scriptTask>
+    <scriptTask id="_jbpm-unique-46" name="&lt;=1, level3" >
+      <script>System.out.println(kcontext.getNodeInstance().getNodeName() ); </script>
+    </scriptTask>
+    <endEvent id="_jbpm-unique-45" name="End" >
+        <terminateEventDefinition />
+    </endEvent>
+    <endEvent id="_jbpm-unique-49" name="End" >
+        <terminateEventDefinition />
+    </endEvent>
+    <scriptTask id="_jbpm-unique-50" name="&lt;2, level4" >
+      <script>System.out.println(kcontext.getNodeInstance().getNodeName() ); </script>
+    </scriptTask>
+    <scriptTask id="_jbpm-unique-47" name="&gt;1, level4" >
+      <script>System.out.println(kcontext.getNodeInstance().getNodeName() ); </script>
+    </scriptTask>
+    <endEvent id="_jbpm-unique-48" name="End" >
+        <terminateEventDefinition />
+    </endEvent>
+    <endEvent id="_jbpm-unique-53" name="End" >
+        <terminateEventDefinition />
+    </endEvent>
+    <scriptTask id="_jbpm-unique-54" name="NoCurrentOverdue" >
+      <script>System.out.println(kcontext.getNodeInstance().getNodeName() ); </script>
+    </scriptTask>
+    <scriptTask id="_jbpm-unique-51" name="&gt;=2, level5" >
+    </scriptTask>
+    <endEvent id="_jbpm-unique-52" name="End" >
+        <terminateEventDefinition />
+    </endEvent>
+    <endEvent id="_jbpm-unique-57" name="End" >
+        <terminateEventDefinition />
+    </endEvent>
+    <scriptTask id="_jbpm-unique-55" name="HasCurrentOverdue" >
+      <script>System.out.println(kcontext.getNodeInstance().getNodeName() ); </script>
+    </scriptTask>
+    <endEvent id="_jbpm-unique-56" name="End" >
+        <terminateEventDefinition />
+    </endEvent>
+
+    <!-- connections -->
+    <sequenceFlow id="_jbpm-unique-4-_2" sourceRef="_jbpm-unique-4" targetRef="_2" name="NoPBOC" tns:priority="1" >
+      <conditionExpression xsi:type="tFormalExpression" >return anyPBOC==0;</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="_2-_3" sourceRef="_2" targetRef="_3" />
+    <sequenceFlow id="_1-_jbpm-unique-4" sourceRef="_1" targetRef="_jbpm-unique-4" />
+    <sequenceFlow id="_jbpm-unique-4-_jbpm-unique-18" sourceRef="_jbpm-unique-4" targetRef="_jbpm-unique-18" name="HasPBOC" tns:priority="1" >
+      <conditionExpression xsi:type="tFormalExpression" >return anyPBOC==1;</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="_jbpm-unique-18-_jbpm-unique-20" sourceRef="_jbpm-unique-18" targetRef="_jbpm-unique-20" name="HasBadDebt" tns:priority="1" >
+      <conditionExpression xsi:type="tFormalExpression" >return anyBadDebt==1;</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="_jbpm-unique-20-_jbpm-unique-21" sourceRef="_jbpm-unique-20" targetRef="_jbpm-unique-21" name="NoInfo" tns:priority="1" >
+      <conditionExpression xsi:type="tFormalExpression" >return Loan24OverdueTerm==-1;</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="_jbpm-unique-20-_jbpm-unique-22" sourceRef="_jbpm-unique-20" targetRef="_jbpm-unique-22" name="&lt;2" tns:priority="1" >
+      <conditionExpression xsi:type="tFormalExpression" >return Loan24OverdueTerm &gt;=0 &amp;&amp; Loan24OverdueTerm&lt; 2;</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="_jbpm-unique-20-_jbpm-unique-24" sourceRef="_jbpm-unique-20" targetRef="_jbpm-unique-24" name="&gt;=2" tns:priority="1" >
+      <conditionExpression xsi:type="tFormalExpression" >return Loan24OverdueTerm&gt;=2;</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="_jbpm-unique-21-_jbpm-unique-25" sourceRef="_jbpm-unique-21" targetRef="_jbpm-unique-25" />
+    <sequenceFlow id="_jbpm-unique-24-_jbpm-unique-26" sourceRef="_jbpm-unique-24" targetRef="_jbpm-unique-26" />
+    <sequenceFlow id="_jbpm-unique-22-_jbpm-unique-28" sourceRef="_jbpm-unique-22" targetRef="_jbpm-unique-28" name="&gt;=2" tns:priority="1" >
+      <conditionExpression xsi:type="tFormalExpression" >return CC12OverdueTerm&gt;=2;</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="_jbpm-unique-22-_jbpm-unique-27" sourceRef="_jbpm-unique-22" targetRef="_jbpm-unique-27" name="&lt;2 or no info" tns:priority="1" >
+      <conditionExpression xsi:type="tFormalExpression" >return CC12OverdueTerm&lt;2;</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="_jbpm-unique-28-_jbpm-unique-30" sourceRef="_jbpm-unique-28" targetRef="_jbpm-unique-30" />
+    <sequenceFlow id="_jbpm-unique-27-_jbpm-unique-29" sourceRef="_jbpm-unique-27" targetRef="_jbpm-unique-29" />
+    <sequenceFlow id="_jbpm-unique-33-_jbpm-unique-34" sourceRef="_jbpm-unique-33" targetRef="_jbpm-unique-34" name="NoLoan" tns:priority="1" >
+      <conditionExpression xsi:type="tFormalExpression" >return anyLoan==0;</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="_jbpm-unique-18-_jbpm-unique-33" sourceRef="_jbpm-unique-18" targetRef="_jbpm-unique-33" name="NoBadDebt" tns:priority="1" >
+      <conditionExpression xsi:type="tFormalExpression" >return anyBadDebt==0;</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="_jbpm-unique-34-_jbpm-unique-36" sourceRef="_jbpm-unique-34" targetRef="_jbpm-unique-36" name="NoCreditCard" tns:priority="1" >
+      <conditionExpression xsi:type="tFormalExpression" >return anyCreditCard==0;</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="_jbpm-unique-33-_jbpm-unique-35" sourceRef="_jbpm-unique-33" targetRef="_jbpm-unique-35" name="HasLoan" tns:priority="1" >
+      <conditionExpression xsi:type="tFormalExpression" >return anyLoan==1;</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="_jbpm-unique-36-_jbpm-unique-38" sourceRef="_jbpm-unique-36" targetRef="_jbpm-unique-38" />
+    <sequenceFlow id="_jbpm-unique-34-_jbpm-unique-37" sourceRef="_jbpm-unique-34" targetRef="_jbpm-unique-37" name="HasCreditCard" tns:priority="1" >
+      <conditionExpression xsi:type="tFormalExpression" >return anyCreditCard==1;</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="_jbpm-unique-37-_jbpm-unique-40" sourceRef="_jbpm-unique-37" targetRef="_jbpm-unique-40" name="2" tns:priority="1" >
+      <conditionExpression xsi:type="tFormalExpression" >return CC24OverdueTerm==2;</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="_jbpm-unique-37-_jbpm-unique-39" sourceRef="_jbpm-unique-37" targetRef="_jbpm-unique-39" name="&lt;=1" tns:priority="1" >
+      <conditionExpression xsi:type="tFormalExpression" >return CC24OverdueTerm &lt;=1;</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="_jbpm-unique-39-_jbpm-unique-42" sourceRef="_jbpm-unique-39" targetRef="_jbpm-unique-42" name="&lt;=16" tns:priority="1" >
+      <conditionExpression xsi:type="tFormalExpression" >return CCNoOverdueTerm &lt;=16;</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="_jbpm-unique-37-_jbpm-unique-41" sourceRef="_jbpm-unique-37" targetRef="_jbpm-unique-41" name="&gt;=3" tns:priority="1" >
+      <conditionExpression xsi:type="tFormalExpression" >return CC24OverdueTerm&gt;=3;</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="_jbpm-unique-42-_jbpm-unique-44" sourceRef="_jbpm-unique-42" targetRef="_jbpm-unique-44" />
+    <sequenceFlow id="_jbpm-unique-39-_jbpm-unique-43" sourceRef="_jbpm-unique-39" targetRef="_jbpm-unique-43" name="&gt;16" tns:priority="1" >
+      <conditionExpression xsi:type="tFormalExpression" >return CCNoOverdueTerm &gt;16;</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="_jbpm-unique-40-_jbpm-unique-46" sourceRef="_jbpm-unique-40" targetRef="_jbpm-unique-46" name="&lt;=1" tns:priority="1" >
+      <conditionExpression xsi:type="tFormalExpression" >return CCCurrentOverdueTerm&lt;=1;</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="_jbpm-unique-43-_jbpm-unique-45" sourceRef="_jbpm-unique-43" targetRef="_jbpm-unique-45" />
+    <sequenceFlow id="_jbpm-unique-47-_jbpm-unique-49" sourceRef="_jbpm-unique-47" targetRef="_jbpm-unique-49" />
+    <sequenceFlow id="_jbpm-unique-41-_jbpm-unique-50" sourceRef="_jbpm-unique-41" targetRef="_jbpm-unique-50" name="&lt;=2" tns:priority="1" >
+      <conditionExpression xsi:type="tFormalExpression" >return CCCurrentOverdueTerm&lt;=2;</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="_jbpm-unique-40-_jbpm-unique-47" sourceRef="_jbpm-unique-40" targetRef="_jbpm-unique-47" name="&gt;1" tns:priority="1" >
+      <conditionExpression xsi:type="tFormalExpression" >return CCCurrentOverdueTerm&gt;1;</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="_jbpm-unique-46-_jbpm-unique-48" sourceRef="_jbpm-unique-46" targetRef="_jbpm-unique-48" />
+    <sequenceFlow id="_jbpm-unique-51-_jbpm-unique-53" sourceRef="_jbpm-unique-51" targetRef="_jbpm-unique-53" />
+    <sequenceFlow id="_jbpm-unique-35-_jbpm-unique-54" sourceRef="_jbpm-unique-35" targetRef="_jbpm-unique-54" name="noCurrentOverdue" tns:priority="1" >
+      <conditionExpression xsi:type="tFormalExpression" >return CCCurrentOverdueTerm&lt;=2;</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="_jbpm-unique-41-_jbpm-unique-51" sourceRef="_jbpm-unique-41" targetRef="_jbpm-unique-51" name="&gt;2" tns:priority="1" >
+      <conditionExpression xsi:type="tFormalExpression" >return CCCurrentOverdueTerm&gt;2;</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="_jbpm-unique-50-_jbpm-unique-52" sourceRef="_jbpm-unique-50" targetRef="_jbpm-unique-52" />
+    <sequenceFlow id="_jbpm-unique-55-_jbpm-unique-57" sourceRef="_jbpm-unique-55" targetRef="_jbpm-unique-57" />
+    <sequenceFlow id="_jbpm-unique-35-_jbpm-unique-55" sourceRef="_jbpm-unique-35" targetRef="_jbpm-unique-55" name="hasCurrentOverdue" tns:priority="1" >
+      <conditionExpression xsi:type="tFormalExpression" >return CCCurrentOverdueTerm&gt;2;</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="_jbpm-unique-54-_jbpm-unique-56" sourceRef="_jbpm-unique-54" targetRef="_jbpm-unique-56" />
+
+  </process>
+
+  <bpmndi:BPMNDiagram>
+    <bpmndi:BPMNPlane bpmnElement="sample2" >
+      <bpmndi:BPMNShape bpmnElement="_2" >
+        <dc:Bounds x="177" y="147" width="270" height="49" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_1" >
+        <dc:Bounds x="16" y="187" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_3" >
+        <dc:Bounds x="479" y="147" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_jbpm-unique-4" >
+        <dc:Bounds x="96" y="187" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_jbpm-unique-18" >
+        <dc:Bounds x="288" y="228" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_jbpm-unique-20" >
+        <dc:Bounds x="479" y="227" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_jbpm-unique-21" >
+        <dc:Bounds x="560" y="94" width="80" height="49" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_jbpm-unique-22" >
+        <dc:Bounds x="576" y="175" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_jbpm-unique-24" >
+        <dc:Bounds x="560" y="256" width="80" height="49" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_jbpm-unique-25" >
+        <dc:Bounds x="734" y="16" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_jbpm-unique-26" >
+        <dc:Bounds x="734" y="256" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_jbpm-unique-28" >
+        <dc:Bounds x="672" y="96" width="173" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_jbpm-unique-27" >
+        <dc:Bounds x="672" y="176" width="173" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_jbpm-unique-30" >
+        <dc:Bounds x="877" y="96" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_jbpm-unique-29" >
+        <dc:Bounds x="877" y="176" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_jbpm-unique-34" >
+        <dc:Bounds x="576" y="389" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_jbpm-unique-33" >
+        <dc:Bounds x="479" y="389" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_jbpm-unique-36" >
+        <dc:Bounds x="672" y="336" width="173" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_jbpm-unique-35" >
+        <dc:Bounds x="576" y="579" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_jbpm-unique-38" >
+        <dc:Bounds x="877" y="256" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_jbpm-unique-37" >
+        <dc:Bounds x="734" y="416" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_jbpm-unique-40" >
+        <dc:Bounds x="877" y="336" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_jbpm-unique-39" >
+        <dc:Bounds x="877" y="417" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_jbpm-unique-42" >
+        <dc:Bounds x="958" y="379" width="111" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_jbpm-unique-41" >
+        <dc:Bounds x="877" y="498" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_jbpm-unique-44" >
+        <dc:Bounds x="1101" y="379" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_jbpm-unique-43" >
+        <dc:Bounds x="958" y="459" width="111" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_jbpm-unique-46" >
+        <dc:Bounds x="958" y="219" width="111" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_jbpm-unique-45" >
+        <dc:Bounds x="1101" y="459" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_jbpm-unique-49" >
+        <dc:Bounds x="1101" y="299" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_jbpm-unique-50" >
+        <dc:Bounds x="958" y="539" width="111" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_jbpm-unique-47" >
+        <dc:Bounds x="958" y="299" width="111" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_jbpm-unique-48" >
+        <dc:Bounds x="1101" y="219" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_jbpm-unique-53" >
+        <dc:Bounds x="1101" y="619" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_jbpm-unique-54" >
+        <dc:Bounds x="672" y="579" width="173" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_jbpm-unique-51" >
+        <dc:Bounds x="958" y="619" width="111" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_jbpm-unique-52" >
+        <dc:Bounds x="1101" y="539" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_jbpm-unique-57" >
+        <dc:Bounds x="877" y="659" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_jbpm-unique-55" >
+        <dc:Bounds x="672" y="659" width="173" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_jbpm-unique-56" >
+        <dc:Bounds x="877" y="579" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="_jbpm-unique-4-_2" >
+        <di:waypoint x="120" y="211" />
+        <di:waypoint x="312" y="171" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_2-_3" >
+        <di:waypoint x="312" y="171" />
+        <di:waypoint x="503" y="171" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_1-_jbpm-unique-4" >
+        <di:waypoint x="40" y="211" />
+        <di:waypoint x="120" y="211" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_jbpm-unique-4-_jbpm-unique-18" >
+        <di:waypoint x="120" y="211" />
+        <di:waypoint x="312" y="252" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_jbpm-unique-18-_jbpm-unique-20" >
+        <di:waypoint x="312" y="252" />
+        <di:waypoint x="503" y="251" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_jbpm-unique-20-_jbpm-unique-21" >
+        <di:waypoint x="503" y="251" />
+        <di:waypoint x="600" y="118" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_jbpm-unique-20-_jbpm-unique-22" >
+        <di:waypoint x="503" y="251" />
+        <di:waypoint x="600" y="199" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_jbpm-unique-20-_jbpm-unique-24" >
+        <di:waypoint x="503" y="251" />
+        <di:waypoint x="600" y="280" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_jbpm-unique-21-_jbpm-unique-25" >
+        <di:waypoint x="600" y="118" />
+        <di:waypoint x="758" y="40" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_jbpm-unique-24-_jbpm-unique-26" >
+        <di:waypoint x="600" y="280" />
+        <di:waypoint x="758" y="280" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_jbpm-unique-22-_jbpm-unique-28" >
+        <di:waypoint x="600" y="199" />
+        <di:waypoint x="758" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_jbpm-unique-22-_jbpm-unique-27" >
+        <di:waypoint x="600" y="199" />
+        <di:waypoint x="758" y="200" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_jbpm-unique-28-_jbpm-unique-30" >
+        <di:waypoint x="758" y="120" />
+        <di:waypoint x="901" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_jbpm-unique-27-_jbpm-unique-29" >
+        <di:waypoint x="758" y="200" />
+        <di:waypoint x="901" y="200" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_jbpm-unique-33-_jbpm-unique-34" >
+        <di:waypoint x="503" y="413" />
+        <di:waypoint x="600" y="413" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_jbpm-unique-18-_jbpm-unique-33" >
+        <di:waypoint x="312" y="252" />
+        <di:waypoint x="503" y="413" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_jbpm-unique-34-_jbpm-unique-36" >
+        <di:waypoint x="600" y="413" />
+        <di:waypoint x="758" y="360" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_jbpm-unique-33-_jbpm-unique-35" >
+        <di:waypoint x="503" y="413" />
+        <di:waypoint x="600" y="603" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_jbpm-unique-36-_jbpm-unique-38" >
+        <di:waypoint x="758" y="360" />
+        <di:waypoint x="901" y="280" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_jbpm-unique-34-_jbpm-unique-37" >
+        <di:waypoint x="600" y="413" />
+        <di:waypoint x="758" y="440" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_jbpm-unique-37-_jbpm-unique-40" >
+        <di:waypoint x="758" y="440" />
+        <di:waypoint x="901" y="360" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_jbpm-unique-37-_jbpm-unique-39" >
+        <di:waypoint x="758" y="440" />
+        <di:waypoint x="901" y="441" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_jbpm-unique-39-_jbpm-unique-42" >
+        <di:waypoint x="901" y="441" />
+        <di:waypoint x="1013" y="403" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_jbpm-unique-37-_jbpm-unique-41" >
+        <di:waypoint x="758" y="440" />
+        <di:waypoint x="901" y="522" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_jbpm-unique-42-_jbpm-unique-44" >
+        <di:waypoint x="1013" y="403" />
+        <di:waypoint x="1125" y="403" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_jbpm-unique-39-_jbpm-unique-43" >
+        <di:waypoint x="901" y="441" />
+        <di:waypoint x="1013" y="483" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_jbpm-unique-40-_jbpm-unique-46" >
+        <di:waypoint x="901" y="360" />
+        <di:waypoint x="1013" y="243" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_jbpm-unique-43-_jbpm-unique-45" >
+        <di:waypoint x="1013" y="483" />
+        <di:waypoint x="1125" y="483" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_jbpm-unique-47-_jbpm-unique-49" >
+        <di:waypoint x="1013" y="323" />
+        <di:waypoint x="1125" y="323" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_jbpm-unique-41-_jbpm-unique-50" >
+        <di:waypoint x="901" y="522" />
+        <di:waypoint x="1013" y="563" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_jbpm-unique-40-_jbpm-unique-47" >
+        <di:waypoint x="901" y="360" />
+        <di:waypoint x="1013" y="323" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_jbpm-unique-46-_jbpm-unique-48" >
+        <di:waypoint x="1013" y="243" />
+        <di:waypoint x="1125" y="243" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_jbpm-unique-51-_jbpm-unique-53" >
+        <di:waypoint x="1013" y="643" />
+        <di:waypoint x="1125" y="643" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_jbpm-unique-35-_jbpm-unique-54" >
+        <di:waypoint x="600" y="603" />
+        <di:waypoint x="758" y="603" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_jbpm-unique-41-_jbpm-unique-51" >
+        <di:waypoint x="901" y="522" />
+        <di:waypoint x="1013" y="643" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_jbpm-unique-50-_jbpm-unique-52" >
+        <di:waypoint x="1013" y="563" />
+        <di:waypoint x="1125" y="563" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_jbpm-unique-55-_jbpm-unique-57" >
+        <di:waypoint x="758" y="683" />
+        <di:waypoint x="901" y="683" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_jbpm-unique-35-_jbpm-unique-55" >
+        <di:waypoint x="600" y="603" />
+        <di:waypoint x="758" y="683" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_jbpm-unique-54-_jbpm-unique-56" >
+        <di:waypoint x="758" y="603" />
+        <di:waypoint x="901" y="603" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+
+</definitions>
