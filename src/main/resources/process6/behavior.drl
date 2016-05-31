@@ -1,0 +1,145 @@
+package com.credan.behavior
+
+import java.util.Map;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map.Entry;
+import java.util.ArrayList;
+import com.credan.po.InputMessage;
+import com.credan.po.RuleManager;
+
+rule "BE_ABNORMALTIME"
+salience 99
+// 在异常时间段登录
+lock-on-active true
+	when
+		$rule : RuleManager()
+		eval($rule.getScore("BE_ABNORMALTIME",1) > 0)
+		$model : InputMessage($rule.getMinValue <= optTime && optTime <= $rule.getMaxValue)
+   	then
+   		$model.addScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+   		
+end
+
+rule "BE_DINULL"
+// 设备指纹为空
+lock-on-active true
+	when
+		$model : InputMessage(di == "")
+		$rule : RuleManager()
+   	then
+   		$rule.setRuleScore($rule.getScore(drools.getRule().getName()));
+   		$model.addScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "BE_COOKIENULL"
+// 设备指纹为空
+lock-on-active true
+	when
+		$model : InputMessage(cookie == "")
+		$rule : RuleManager()
+   	then
+   		$rule.setRuleScore($rule.getScore(drools.getRule().getName()));
+   		$model.addScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "BE_VM"
+// 是否是虚拟机
+lock-on-active true
+	when
+		$model : InputMessage(isVM==1)
+		$rule : RuleManager()
+   	then
+   		$rule.setRuleScore($rule.getScore(drools.getRule().getName()));
+   		$model.addScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "BE_EMULATOR"
+// 是否使用模拟器
+lock-on-active true
+	when
+		$model : InputMessage(isEmulator==1)
+		$rule : RuleManager()
+   	then
+   		$rule.setRuleScore($rule.getScore(drools.getRule().getName()));
+   		$model.addScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "BE_PROXY"
+// 是否使用代理服务器
+lock-on-active true
+	when
+		$model : InputMessage(isProxy==1)
+		$rule : RuleManager()
+   	then
+   		$rule.setRuleScore($rule.getScore(drools.getRule().getName()));
+   		$model.addScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "BE_VPN"
+// 是否使用VPN
+lock-on-active true
+	when
+		$model : InputMessage(isVPN==1)
+		$rule : RuleManager()
+   	then
+   		$rule.setRuleScore($rule.getScore(drools.getRule().getName()));
+   		$model.addScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "BE_ROOT"
+// 是否被root
+lock-on-active true
+	when
+		$model : InputMessage(isRoot==1)
+		$rule : RuleManager()
+   	then
+   		$rule.setRuleScore($rule.getScore(drools.getRule().getName()));
+   		$model.addScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "BE_JAILBREAK"
+// 是否越狱
+lock-on-active true
+	when
+		$model : InputMessage(isJailbreak==1)
+		$rule : RuleManager()
+   	then
+   		$rule.setRuleScore($rule.getScore(drools.getRule().getName()));
+   		$model.addScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "BE_CUSNW"
+activation-group "customerType"
+// 新用户
+lock-on-active true
+	when
+		$model : InputMessage(isNewUser==1)
+		$rule : RuleManager()
+   	then
+   		$rule.setRuleScore($rule.getScore(drools.getRule().getName()));
+   		$model.addScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "BE_CUSRT"
+activation-group "customerType"
+// 已有用户
+lock-on-active true
+	when
+		$model : InputMessage(isReturnUser==1)
+		$rule : RuleManager()
+   	then
+   		$rule.setRuleScore($rule.getScore(drools.getRule().getName()));
+   		$model.addScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end

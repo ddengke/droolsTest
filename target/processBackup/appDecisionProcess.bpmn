@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<definitions id="Definition"
+             targetNamespace="http://www.jboss.org/drools"
+             typeLanguage="http://www.java.com/javaTypes"
+             expressionLanguage="http://www.mvel.org/2.0"
+             xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd"
+             xmlns:g="http://www.jboss.org/drools/flow/gpd"
+             xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+             xmlns:dc="http://www.omg.org/spec/DD/20100524/DC"
+             xmlns:di="http://www.omg.org/spec/DD/20100524/DI"
+             xmlns:tns="http://www.jboss.org/drools">
+
+  <itemDefinition id="_policyRuleFlag" />
+  <itemDefinition id="null" />
+  <process processType="Private" isExecutable="true" id="appDecisionProcess" name="appDecisionProcess" >
+
+    <!-- process variables -->
+    <property id="policyRuleFlag" itemSubjectRef="null"/>
+
+    <!-- nodes -->
+    <startEvent id="_1" name="StartProcess"  isInterrupting="true">
+    </startEvent>
+    <callActivity id="_jbpm-unique-11" name="PrecheckRuleSubProcess" calledElement="PolicyRuleSubProcess" >
+      <ioSpecification>
+        <inputSet>
+        </inputSet>
+        <outputSet>
+        </outputSet>
+      </ioSpecification>
+    </callActivity>
+    <callActivity id="_jbpm-unique-12" name="ScoreCardSubProcess" calledElement="ScoreCardSubProcess" >
+      <ioSpecification>
+        <inputSet>
+        </inputSet>
+        <outputSet>
+        </outputSet>
+      </ioSpecification>
+    </callActivity>
+    <businessRuleTask id="_jbpm-unique-13" name="RiskLevel" g:ruleFlowGroup="riskLevel" >
+      <ioSpecification>
+        <inputSet>
+        </inputSet>
+        <outputSet>
+        </outputSet>
+      </ioSpecification>
+    </businessRuleTask>
+    <parallelGateway id="_jbpm-unique-14" name="Gateway" gatewayDirection="Diverging" >
+    </parallelGateway>
+    <businessRuleTask id="_jbpm-unique-15" name="AmountThresh" g:ruleFlowGroup="amountThresh" >
+      <ioSpecification>
+        <inputSet>
+        </inputSet>
+        <outputSet>
+        </outputSet>
+      </ioSpecification>
+    </businessRuleTask>
+    <businessRuleTask id="_jbpm-unique-16" name="RiskRate" g:ruleFlowGroup="riskRate" >
+      <ioSpecification>
+        <inputSet>
+        </inputSet>
+        <outputSet>
+        </outputSet>
+      </ioSpecification>
+    </businessRuleTask>
+    <parallelGateway id="_jbpm-unique-17" name="Gateway" gatewayDirection="Converging" >
+    </parallelGateway>
+    <endEvent id="_jbpm-unique-18" name="End" >
+        <terminateEventDefinition />
+    </endEvent>
+    <businessRuleTask id="_jbpm-unique-19" name="FinalAmount" g:ruleFlowGroup="finalAmount" >
+      <ioSpecification>
+        <inputSet>
+        </inputSet>
+        <outputSet>
+        </outputSet>
+      </ioSpecification>
+    </businessRuleTask>
+    <exclusiveGateway id="_jbpm-unique-20" name="PolicyRuleFlag" gatewayDirection="Diverging" >
+    </exclusiveGateway>
+    <scriptTask id="_jbpm-unique-21" name="PolicyRuleFailed" >
+      <script>System.out.println("Did not pass the policy rules.");</script>
+    </scriptTask>
+    <endEvent id="_jbpm-unique-22" name="End" >
+        <terminateEventDefinition />
+    </endEvent>
+    <parallelGateway id="_jbpm-unique-0" name="Gateway" gatewayDirection="Diverging" >
+    </parallelGateway>
+    <callActivity id="_jbpm-unique-1" name="PBOCSubProcess" calledElement="PBOCSubProcess" >
+      <ioSpecification>
+        <inputSet>
+        </inputSet>
+        <outputSet>
+        </outputSet>
+      </ioSpecification>
+    </callActivity>
+    <parallelGateway id="_jbpm-unique-2" name="Gateway" gatewayDirection="Converging" >
+    </parallelGateway>
+    <callActivity id="_jbpm-unique-3" name="PolicyRuleSubProcess" calledElement="PolicyRuleSubProcess" >
+      <ioSpecification>
+        <inputSet>
+        </inputSet>
+        <outputSet>
+        </outputSet>
+      </ioSpecification>
+    </callActivity>
+    <exclusiveGateway id="_jbpm-unique-4" name="Gateway" gatewayDirection="Diverging" >
+    </exclusiveGateway>
+    <scriptTask id="_jbpm-unique-5" name="NoPBOCReport" >
+      <script>System.out.println("No PBOC report.");</script>
+    </scriptTask>
+
+    <!-- connections -->
+    <sequenceFlow id="_1-_jbpm-unique-11" sourceRef="_1" targetRef="_jbpm-unique-11" />
+    <sequenceFlow id="_jbpm-unique-0-_jbpm-unique-12" sourceRef="_jbpm-unique-0" targetRef="_jbpm-unique-12" />
+    <sequenceFlow id="_jbpm-unique-12-_jbpm-unique-13" sourceRef="_jbpm-unique-12" targetRef="_jbpm-unique-13" />
+    <sequenceFlow id="_jbpm-unique-13-_jbpm-unique-14" sourceRef="_jbpm-unique-13" targetRef="_jbpm-unique-14" />
+    <sequenceFlow id="_jbpm-unique-14-_jbpm-unique-15" sourceRef="_jbpm-unique-14" targetRef="_jbpm-unique-15" />
+    <sequenceFlow id="_jbpm-unique-14-_jbpm-unique-16" sourceRef="_jbpm-unique-14" targetRef="_jbpm-unique-16" />
+    <sequenceFlow id="_jbpm-unique-15-_jbpm-unique-17" sourceRef="_jbpm-unique-15" targetRef="_jbpm-unique-17" />
+    <sequenceFlow id="_jbpm-unique-16-_jbpm-unique-17" sourceRef="_jbpm-unique-16" targetRef="_jbpm-unique-17" />
+    <sequenceFlow id="_jbpm-unique-3-_jbpm-unique-18" sourceRef="_jbpm-unique-3" targetRef="_jbpm-unique-18" />
+    <sequenceFlow id="_jbpm-unique-17-_jbpm-unique-19" sourceRef="_jbpm-unique-17" targetRef="_jbpm-unique-19" />
+    <sequenceFlow id="_jbpm-unique-11-_jbpm-unique-20" sourceRef="_jbpm-unique-11" targetRef="_jbpm-unique-20" />
+    <sequenceFlow id="_jbpm-unique-20-_jbpm-unique-21" sourceRef="_jbpm-unique-20" targetRef="_jbpm-unique-21" name="&lt;10" tns:priority="1" >
+      <conditionExpression xsi:type="tFormalExpression" >return policyRuleFlag&lt;10;</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="_jbpm-unique-21-_jbpm-unique-22" sourceRef="_jbpm-unique-21" targetRef="_jbpm-unique-22" />
+    <sequenceFlow id="_jbpm-unique-20-_jbpm-unique-0" sourceRef="_jbpm-unique-20" targetRef="_jbpm-unique-0" name="&gt;=10" tns:priority="1" >
+      <conditionExpression xsi:type="tFormalExpression" >return policyRuleFlag&gt;=10;</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="_jbpm-unique-4-_jbpm-unique-1" sourceRef="_jbpm-unique-4" targetRef="_jbpm-unique-1" name="hasPBOC" tns:priority="1" >
+      <conditionExpression xsi:type="tFormalExpression" >return policyRuleFlag&lt;20;</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="_jbpm-unique-1-_jbpm-unique-2" sourceRef="_jbpm-unique-1" targetRef="_jbpm-unique-2" />
+    <sequenceFlow id="_jbpm-unique-19-_jbpm-unique-2" sourceRef="_jbpm-unique-19" targetRef="_jbpm-unique-2" />
+    <sequenceFlow id="_jbpm-unique-5-_jbpm-unique-2" sourceRef="_jbpm-unique-5" targetRef="_jbpm-unique-2" />
+    <sequenceFlow id="_jbpm-unique-2-_jbpm-unique-3" sourceRef="_jbpm-unique-2" targetRef="_jbpm-unique-3" />
+    <sequenceFlow id="_jbpm-unique-0-_jbpm-unique-4" sourceRef="_jbpm-unique-0" targetRef="_jbpm-unique-4" />
+    <sequenceFlow id="_jbpm-unique-4-_jbpm-unique-5" sourceRef="_jbpm-unique-4" targetRef="_jbpm-unique-5" name="noPBOC" tns:priority="1" >
+      <conditionExpression xsi:type="tFormalExpression" >return policyRuleFlag&gt;=20;</conditionExpression>
+    </sequenceFlow>
+
+  </process>
+
+  <bpmndi:BPMNDiagram>
+    <bpmndi:BPMNPlane bpmnElement="appDecisionProcess" >
+      <bpmndi:BPMNShape bpmnElement="_1" >
+        <dc:Bounds x="16" y="80" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_jbpm-unique-11" >
+        <dc:Bounds x="96" y="80" width="159" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_jbpm-unique-12" >
+        <dc:Bounds x="510" y="96" width="158" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_jbpm-unique-13" >
+        <dc:Bounds x="700" y="96" width="108" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_jbpm-unique-14" >
+        <dc:Bounds x="840" y="95" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_jbpm-unique-15" >
+        <dc:Bounds x="921" y="16" width="108" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_jbpm-unique-16" >
+        <dc:Bounds x="921" y="96" width="108" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_jbpm-unique-17" >
+        <dc:Bounds x="1061" y="41" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_jbpm-unique-18" >
+        <dc:Bounds x="1605" y="121" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_jbpm-unique-19" >
+        <dc:Bounds x="1142" y="41" width="158" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_jbpm-unique-20" >
+        <dc:Bounds x="287" y="80" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_jbpm-unique-21" >
+        <dc:Bounds x="368" y="40" width="110" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_jbpm-unique-22" >
+        <dc:Bounds x="565" y="16" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_jbpm-unique-0" >
+        <dc:Bounds x="399" y="120" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_jbpm-unique-1" >
+        <dc:Bounds x="1142" y="121" width="158" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_jbpm-unique-2" >
+        <dc:Bounds x="1332" y="121" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_jbpm-unique-3" >
+        <dc:Bounds x="1413" y="121" width="160" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_jbpm-unique-4" >
+        <dc:Bounds x="1061" y="146" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_jbpm-unique-5" >
+        <dc:Bounds x="1142" y="201" width="158" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="_1-_jbpm-unique-11" >
+        <di:waypoint x="40" y="104" />
+        <di:waypoint x="175" y="104" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_jbpm-unique-0-_jbpm-unique-12" >
+        <di:waypoint x="423" y="144" />
+        <di:waypoint x="589" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_jbpm-unique-12-_jbpm-unique-13" >
+        <di:waypoint x="589" y="120" />
+        <di:waypoint x="754" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_jbpm-unique-13-_jbpm-unique-14" >
+        <di:waypoint x="754" y="120" />
+        <di:waypoint x="864" y="119" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_jbpm-unique-14-_jbpm-unique-15" >
+        <di:waypoint x="864" y="119" />
+        <di:waypoint x="975" y="40" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_jbpm-unique-14-_jbpm-unique-16" >
+        <di:waypoint x="864" y="119" />
+        <di:waypoint x="975" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_jbpm-unique-15-_jbpm-unique-17" >
+        <di:waypoint x="975" y="40" />
+        <di:waypoint x="1085" y="65" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_jbpm-unique-16-_jbpm-unique-17" >
+        <di:waypoint x="975" y="120" />
+        <di:waypoint x="1085" y="65" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_jbpm-unique-3-_jbpm-unique-18" >
+        <di:waypoint x="1493" y="145" />
+        <di:waypoint x="1629" y="145" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_jbpm-unique-17-_jbpm-unique-19" >
+        <di:waypoint x="1085" y="65" />
+        <di:waypoint x="1221" y="65" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_jbpm-unique-11-_jbpm-unique-20" >
+        <di:waypoint x="175" y="104" />
+        <di:waypoint x="311" y="104" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_jbpm-unique-20-_jbpm-unique-21" >
+        <di:waypoint x="311" y="104" />
+        <di:waypoint x="423" y="64" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_jbpm-unique-21-_jbpm-unique-22" >
+        <di:waypoint x="423" y="64" />
+        <di:waypoint x="589" y="40" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_jbpm-unique-20-_jbpm-unique-0" >
+        <di:waypoint x="311" y="104" />
+        <di:waypoint x="423" y="144" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_jbpm-unique-4-_jbpm-unique-1" >
+        <di:waypoint x="1085" y="170" />
+        <di:waypoint x="1221" y="145" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_jbpm-unique-1-_jbpm-unique-2" >
+        <di:waypoint x="1221" y="145" />
+        <di:waypoint x="1356" y="145" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_jbpm-unique-19-_jbpm-unique-2" >
+        <di:waypoint x="1221" y="65" />
+        <di:waypoint x="1356" y="145" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_jbpm-unique-5-_jbpm-unique-2" >
+        <di:waypoint x="1221" y="225" />
+        <di:waypoint x="1356" y="145" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_jbpm-unique-2-_jbpm-unique-3" >
+        <di:waypoint x="1356" y="145" />
+        <di:waypoint x="1493" y="145" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_jbpm-unique-0-_jbpm-unique-4" >
+        <di:waypoint x="423" y="144" />
+        <di:waypoint x="1085" y="170" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_jbpm-unique-4-_jbpm-unique-5" >
+        <di:waypoint x="1085" y="170" />
+        <di:waypoint x="1221" y="225" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+
+</definitions>

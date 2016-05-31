@@ -22,21 +22,11 @@ public class ProcessTest2 {
 	        KieServices ks = KieServices.Factory.get();
     	    KieContainer kContainer = ks.getKieClasspathContainer();
         	KieSession kSession = kContainer.newKieSession("ksession-process2");
-        	Map<String, Object> params = new HashMap<String, Object>();
-            params.put("anyPBOC", 1);
-            params.put("anyBadDebt", 1);
-            params.put("Loan24OverdueTerm", 1);
-            params.put("CC12OverdueTerm", 1);
-            params.put("anyLoan", 1);
-            params.put("anyCreditCard", 1);
-            params.put("CC24OverdueTerm", 1);
-            params.put("CCCurrentOverdueTerm", 1);
-            params.put("CCNoOverdueTerm", 1);
-            params.put("CCRate75", 1);
 
             // start a new process instance
         	//kSession.insert(inputMsg);
-            kSession.startProcess("sample2",params);
+            kSession.startProcess("sample2");
+            kSession.fireAllRules();
         } catch (Throwable t) {
             t.printStackTrace();
         }

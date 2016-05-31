@@ -1,0 +1,199 @@
+package com.sample.appDecisionEngine
+
+import com.sample.DecisionEngineInputMessage;
+import com.sample.DecisionEngineRuleManager;
+
+rule "RISKRATE1"
+ruleflow-group "riskRate"
+lock-on-active true
+	when
+		$rule : DecisionEngineRuleManager()
+		$model : DecisionEngineInputMessage(p:profitLevel, r:riskLevel)
+		eval(p == "HP" && r == 5)
+   	then
+   		$rule.setRuleScore($rule.getScore(drools.getRule().getName()));
+   		$model.setRiskRate($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "RISKRATE2"
+ruleflow-group "riskRate"
+lock-on-active true
+	when
+		$rule : DecisionEngineRuleManager()
+		$model : DecisionEngineInputMessage(p:profitLevel, r:riskLevel)
+		eval(p == "HP" && r == 4)
+   	then
+   		$rule.getScore(drools.getRule().getName());
+   		$model.setRiskRate($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "RISKRATE3"
+ruleflow-group "riskRate"
+lock-on-active true
+	when
+		$rule : DecisionEngineRuleManager()
+		$model : DecisionEngineInputMessage(p:profitLevel, r:riskLevel)
+		eval(p == "HP" && r == 3)
+   	then
+   		$rule.getScore(drools.getRule().getName());
+   		$model.setRiskRate($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "RISKRATE4"
+ruleflow-group "riskRate"
+lock-on-active true
+	when
+		$rule : DecisionEngineRuleManager()
+		$model : DecisionEngineInputMessage(p:profitLevel, r:riskLevel)
+		eval(p == "HP" && r == 2)
+   	then
+   		$rule.getScore(drools.getRule().getName());
+   		$model.setRiskRate($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "RISKRATE5"
+ruleflow-group "riskRate"
+lock-on-active true
+	when
+		$rule : DecisionEngineRuleManager()
+		$model : DecisionEngineInputMessage(p:profitLevel, r:riskLevel)
+		eval(p == "HP" && r == 1)
+   	then
+   		$rule.getScore(drools.getRule().getName());
+   		$model.setRiskRate($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "RISKRATE6"
+ruleflow-group "riskRate"
+lock-on-active true
+	when
+		$rule : DecisionEngineRuleManager()
+		$model : DecisionEngineInputMessage(p:profitLevel, r:riskLevel)
+		eval(p == "MP" && r == 5)
+   	then
+   		$rule.getScore(drools.getRule().getName());
+   		$model.setRiskRate($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "RISKRATE7"
+ruleflow-group "riskRate"
+lock-on-active true
+	when
+		$rule : DecisionEngineRuleManager()
+		$model : DecisionEngineInputMessage(p:profitLevel, r:riskLevel)
+		eval(p == "MP" && r == 4)
+   	then
+   		$rule.getScore(drools.getRule().getName());
+   		$model.setRiskRate($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "RISKRATE8"
+ruleflow-group "riskRate"
+lock-on-active true
+	when
+		$rule : DecisionEngineRuleManager()
+		$model : DecisionEngineInputMessage(p:profitLevel, r:riskLevel)
+		eval(p == "MP" && r == 3)
+   	then
+   		$rule.getScore(drools.getRule().getName());
+   		$model.setRiskRate($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "RISKRATE9"
+ruleflow-group "riskRate"
+lock-on-active true
+	when
+		$rule : DecisionEngineRuleManager()
+		$model : DecisionEngineInputMessage(p:profitLevel, r:riskLevel)
+		eval(p == "MP" && r == 2)
+   	then
+   		$rule.getScore(drools.getRule().getName());
+   		$model.setRiskRate($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "RISKRATE10"
+ruleflow-group "riskRate"
+lock-on-active true
+	when
+		$rule : DecisionEngineRuleManager()
+		$model : DecisionEngineInputMessage(p:profitLevel, r:riskLevel)
+		eval(p == "MP" && r == 1)
+   	then
+   		$rule.getScore(drools.getRule().getName());
+   		$model.setRiskRate($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "RISKRATE11"
+ruleflow-group "riskRate"
+lock-on-active true
+	when
+		$rule : DecisionEngineRuleManager()
+		$model : DecisionEngineInputMessage(p:profitLevel, r:riskLevel)
+		eval(p == "LP" && r == 5)
+   	then
+   		$rule.getScore(drools.getRule().getName());
+   		$model.setRiskRate($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "RISKRATE12"
+ruleflow-group "riskRate"
+lock-on-active true
+	when
+		$rule : DecisionEngineRuleManager()
+		$model : DecisionEngineInputMessage(p:profitLevel, r:riskLevel)
+		eval(p == "LP" && r == 4)
+   	then
+   		$rule.getScore(drools.getRule().getName());
+   		$model.setRiskRate($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "RISKRATE13"
+ruleflow-group "riskRate"
+lock-on-active true
+	when
+		$rule : DecisionEngineRuleManager()
+		$model : DecisionEngineInputMessage(p:profitLevel, r:riskLevel)
+		eval(p == "LP" && r == 3)
+   	then
+   		$rule.getScore(drools.getRule().getName());
+   		$model.setRiskRate($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "RISKRATE14"
+ruleflow-group "riskRate"
+lock-on-active true
+	when
+		$rule : DecisionEngineRuleManager()
+		$model : DecisionEngineInputMessage(p:profitLevel, r:riskLevel)
+		eval(p == "LP" && r == 2)
+   	then
+   		$rule.getScore(drools.getRule().getName());
+   		$model.setRiskRate($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "RISKRATE15"
+ruleflow-group "riskRate"
+lock-on-active true
+	when
+		$rule : DecisionEngineRuleManager()
+		$model : DecisionEngineInputMessage(p:profitLevel, r:riskLevel)
+		eval(p == "LP" && r == 1)
+   	then
+   		$rule.getScore(drools.getRule().getName());
+   		$model.setRiskRate($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end

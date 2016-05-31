@@ -1,0 +1,33 @@
+package com.sample.appDecisionEngine
+
+import com.sample.DecisionEngineInputMessage;
+import com.sample.DecisionEngineRuleManager;
+
+rule "REQUESTAMOUNT"
+ruleflow-group "PolicyRule"
+lock-on-active true
+// 设定总授信金额段
+	when
+		$rule : DecisionEngineRuleManager()
+		$model : DecisionEngineInputMessage(ra: requestedAmount, fa: approvedAmount, cl: currentLoanAmount)
+		eval(cl+ ra >= fa)
+   	then
+   		$rule.setRuleScore($rule.getScore(drools.getRule().getName()));
+   		$model.addPolicyRuleResult($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "SALARY"
+ruleflow-group "PolicyRule"
+lock-on-active true
+// 设定最低收入要求
+	when
+		$rule : DecisionEngineRuleManager()
+		$model : DecisionEngineInputMessage(m: salary)
+		eval($rule.getScore("SALARY",1) > 0)
+		eval($rule.getMinValue() >= m)
+   	then
+   		$rule.setRuleScore($rule.getScore(drools.getRule().getName()));
+   		$model.addPolicyRuleResult($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end

@@ -1,0 +1,1091 @@
+package com.sample.appDecisionEngine
+
+import com.sample.DecisionEngineInputMessage;
+import com.sample.DecisionEngineRuleManager;
+
+rule "APP_AGE1"
+ruleflow-group "PersonalScore"
+activation-group "ageScore"
+lock-on-active true
+// 设定年龄段1
+	when
+		$rule : DecisionEngineRuleManager()
+		$model : DecisionEngineInputMessage(m: age)
+		eval($rule.getScore("APP_AGE1",1) > 0)
+		eval($rule.getMinValue() <= m && m < $rule.getMaxValue())
+   	then
+   		$rule.getScore(drools.getRule().getName(),1);
+   		$model.setAgeScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "APP_AGE2"
+ruleflow-group "PersonalScore"
+activation-group "ageScore"
+lock-on-active true
+// 设定年龄段2
+	when
+		$rule : DecisionEngineRuleManager()
+		$model : DecisionEngineInputMessage(m:age)
+		eval($rule.getScore("APP_AGE2",1) > 0)
+		eval($rule.getMinValue() <= m && m < $rule.getMaxValue())
+   	then
+   		$rule.getScore(drools.getRule().getName(),1);
+   		$model.setAgeScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "APP_AGE3"
+ruleflow-group "PersonalScore"
+activation-group "ageScore"
+lock-on-active true
+// 设定年龄段3
+	when
+		$rule : DecisionEngineRuleManager()
+		$model : DecisionEngineInputMessage(m:age)
+		eval($rule.getScore("APP_AGE3",1) > 0)
+		eval($rule.getMinValue() <= m && m < $rule.getMaxValue())
+   	then
+   		$rule.getScore(drools.getRule().getName(),1);
+   		$model.setAgeScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "APP_AGE4"
+ruleflow-group "PersonalScore"
+activation-group "ageScore"
+lock-on-active true
+// 设定年龄段4
+	when
+		$rule : DecisionEngineRuleManager()
+		$model : DecisionEngineInputMessage(m:age)
+		eval($rule.getScore("APP_AGE4",1) > 0)
+		eval($rule.getMinValue() <= m && m < $rule.getMaxValue())
+   	then
+   		$rule.getScore(drools.getRule().getName(),1);
+   		$model.setAgeScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "APP_AGE5"
+ruleflow-group "PersonalScore"
+activation-group "ageScore"
+lock-on-active true
+// 设定年龄段5
+	when
+		$rule : DecisionEngineRuleManager()
+		$model : DecisionEngineInputMessage(m:age)
+		eval($rule.getScore("APP_AGE5",1) > 0)
+		eval($rule.getMinValue() <= m)
+   	then
+   		$rule.getScore(drools.getRule().getName(),1);
+   		$model.setAgeScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "MARRIAGE1"
+ruleflow-group "PersonalScore"
+activation-group "marriageScore"
+lock-on-active true
+// 婚姻状态已婚
+	when
+		$model : DecisionEngineInputMessage(marriage == 0)
+		$rule : DecisionEngineRuleManager()
+   	then
+   		$rule.setRuleScore($rule.getScore(drools.getRule().getName()));
+   		$model.setMarriageScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "MARRIAGE2"
+ruleflow-group "PersonalScore"
+activation-group "marriageScore"
+lock-on-active true
+// 婚姻状态单身
+	when
+		$model : DecisionEngineInputMessage(marriage == 1)
+		$rule : DecisionEngineRuleManager()
+   	then
+   		$rule.setRuleScore($rule.getScore(drools.getRule().getName()));
+   		$model.setMarriageScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "MARRIAGE3"
+ruleflow-group "PersonalScore"
+activation-group "marriageScore"
+lock-on-active true
+// 婚姻状态离异
+	when
+		$model : DecisionEngineInputMessage(marriage == 2)
+		$rule : DecisionEngineRuleManager()
+   	then
+   		$rule.setRuleScore($rule.getScore(drools.getRule().getName()));
+   		$model.setMarriageScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "MARRIAGE4"
+ruleflow-group "PersonalScore"
+activation-group "marriageScore"
+lock-on-active true
+// 婚姻状态丧偶
+	when
+		$model : DecisionEngineInputMessage(marriage == 3)
+		$rule : DecisionEngineRuleManager()
+   	then
+   		$rule.setRuleScore($rule.getScore(drools.getRule().getName()));
+   		$model.setMarriageScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "SEX1"
+ruleflow-group "PersonalScore"
+activation-group "sexScore"
+lock-on-active true
+// 性别为女
+	when
+		$model : DecisionEngineInputMessage(sex == 0)
+		$rule : DecisionEngineRuleManager()
+   	then
+   		$rule.setRuleScore($rule.getScore(drools.getRule().getName()));
+   		$model.setSexScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "SEX2"
+ruleflow-group "PersonalScore"
+activation-group "sexScore"
+lock-on-active true
+// 性别为男
+	when
+		$model : DecisionEngineInputMessage(sex == 1)
+		$rule : DecisionEngineRuleManager()
+   	then
+   		$rule.setRuleScore($rule.getScore(drools.getRule().getName()));
+   		$model.setSexScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "EDUCATION1"
+ruleflow-group "PersonalScore"
+activation-group "educationScore"
+lock-on-active true
+// 教育程度为高中
+	when
+		$model : DecisionEngineInputMessage(education == 0)
+		$rule : DecisionEngineRuleManager()
+   	then
+   		$rule.setRuleScore($rule.getScore(drools.getRule().getName()));
+   		$model.setEducationScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "EDUCATION2"
+ruleflow-group "PersonalScore"
+activation-group "educationScore"
+lock-on-active true
+// 教育程度大专
+	when
+		$model : DecisionEngineInputMessage(education == 1)
+		$rule : DecisionEngineRuleManager()
+   	then
+   		$rule.setRuleScore($rule.getScore(drools.getRule().getName()));
+   		$model.setEducationScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "EDUCATION3"
+ruleflow-group "PersonalScore"
+activation-group "educationScore"
+lock-on-active true
+// 教育程度本科或硕士
+	when
+		$model : DecisionEngineInputMessage(education == 2)
+		$rule : DecisionEngineRuleManager()
+   	then
+   		$rule.setRuleScore($rule.getScore(drools.getRule().getName()));
+   		$model.setEducationScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "EDUCATION4"
+ruleflow-group "PersonalScore"
+activation-group "educationScore"
+lock-on-active true
+// 教育程度博士以上
+	when
+		$model : DecisionEngineInputMessage(education == 3)
+		$rule : DecisionEngineRuleManager()
+   	then
+   		$rule.setRuleScore($rule.getScore(drools.getRule().getName()));
+   		$model.setEducationScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "EDUCATION5"
+ruleflow-group "PersonalScore"
+activation-group "educationScore"
+lock-on-active true
+// 教育程度为其它
+	when
+		$model : DecisionEngineInputMessage(education == 4)
+		$rule : DecisionEngineRuleManager()
+   	then
+   		$rule.setRuleScore($rule.getScore(drools.getRule().getName()));
+   		$model.setEducationScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "HUKOU1"
+ruleflow-group "PersonalScore"
+activation-group "hukouScore"
+lock-on-active true
+// 本地户口
+	when
+		$model : DecisionEngineInputMessage(hukou == 0)
+		$rule : DecisionEngineRuleManager()
+   	then
+   		$rule.setRuleScore($rule.getScore(drools.getRule().getName()));
+   		$model.setHukouScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "HUKOU2"
+ruleflow-group "PersonalScore"
+activation-group "hukouScore"
+lock-on-active true
+// 外地户口
+	when
+		$model : DecisionEngineInputMessage(hukou == 1)
+		$rule : DecisionEngineRuleManager()
+   	then
+   		$rule.setRuleScore($rule.getScore(drools.getRule().getName()));
+   		$model.setHukouScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "COMPANYNATURE1"
+ruleflow-group "OccupationScore"
+activation-group "companyNatureScore"
+lock-on-active true
+// 公司性质为政府机关
+	when
+		$model : DecisionEngineInputMessage(companyNature == 0)
+		$rule : DecisionEngineRuleManager()
+   	then
+   		$rule.setRuleScore($rule.getScore(drools.getRule().getName()));
+   		$model.setCompanyNatureScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "COMPANYNATURE2"
+ruleflow-group "OccupationScore"
+activation-group "companyNatureScore"
+lock-on-active true
+// 公司性质为事业单位
+	when
+		$model : DecisionEngineInputMessage(companyNature == 1)
+		$rule : DecisionEngineRuleManager()
+   	then
+   		$rule.setRuleScore($rule.getScore(drools.getRule().getName()));
+   		$model.setCompanyNatureScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "COMPANYNATURE3"
+ruleflow-group "OccupationScore"
+activation-group "companyNatureScore"
+lock-on-active true
+// 公司性质国有企业
+	when
+		$model : DecisionEngineInputMessage(companyNature == 2)
+		$rule : DecisionEngineRuleManager()
+   	then
+   		$rule.setRuleScore($rule.getScore(drools.getRule().getName()));
+   		$model.setCompanyNatureScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "COMPANYNATURE4"
+ruleflow-group "OccupationScore"
+activation-group "companyNatureScore"
+lock-on-active true
+// 公司性质外资/合资企业
+	when
+		$model : DecisionEngineInputMessage(companyNature == 3)
+		$rule : DecisionEngineRuleManager()
+   	then
+   		$rule.setRuleScore($rule.getScore(drools.getRule().getName()));
+   		$model.setCompanyNatureScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "COMPANYNATURE5"
+ruleflow-group "OccupationScore"
+activation-group "companyNatureScore"
+lock-on-active true
+// 公司性质为私营企业
+	when
+		$model : DecisionEngineInputMessage(companyNature == 4)
+		$rule : DecisionEngineRuleManager()
+   	then
+   		$rule.setRuleScore($rule.getScore(drools.getRule().getName()));
+   		$model.setCompanyNatureScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "COMPANYNATURE6"
+ruleflow-group "OccupationScore"
+activation-group "companyNatureScore"
+lock-on-active true
+// 公司性质为其它
+	when
+		$model : DecisionEngineInputMessage(companyNature == 5)
+		$rule : DecisionEngineRuleManager()
+   	then
+   		$rule.setRuleScore($rule.getScore(drools.getRule().getName()));
+   		$model.setCompanyNatureScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "WORKEXPERIENCE1"
+ruleflow-group "OccupationScore"
+activation-group "workExperienceScore"
+lock-on-active true
+// 工作年限1
+	when
+		$rule : DecisionEngineRuleManager()
+		$model : DecisionEngineInputMessage(m: workExperience)
+		eval($rule.getScore("WORKEXPERIENCE1",1) > 0)
+		eval($rule.getMinValue() <= m)
+   	then
+   		$rule.setRuleScore($rule.getScore(drools.getRule().getName()));
+   		$model.setWorkExperienceScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "WORKEXPERIENCE2"
+ruleflow-group "OccupationScore"
+activation-group "workExperienceScore"
+lock-on-active true
+// 工作年限2
+	when
+		$rule : DecisionEngineRuleManager()
+		$model : DecisionEngineInputMessage(m: workExperience)
+		eval($rule.getScore("WORKEXPERIENCE2",1) > 0)
+		eval($rule.getMinValue() <= m && m < $rule.getMaxValue())
+   	then
+   		$rule.setRuleScore($rule.getScore(drools.getRule().getName()));
+   		$model.setWorkExperienceScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "WORKEXPERIENCE3"
+ruleflow-group "OccupationScore"
+activation-group "workExperienceScore"
+lock-on-active true
+// 工作年限3
+	when
+		$rule : DecisionEngineRuleManager()
+		$model : DecisionEngineInputMessage(m: workExperience)
+		eval($rule.getScore("WORKEXPERIENCE3",1) > 0)
+		eval($rule.getMinValue() <= m && m < $rule.getMaxValue())
+   	then
+   		$rule.setRuleScore($rule.getScore(drools.getRule().getName()));
+   		$model.setWorkExperienceScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "WORKEXPERIENCE4"
+ruleflow-group "OccupationScore"
+activation-group "workExperienceScore"
+lock-on-active true
+// 工作年限4
+	when
+		$rule : DecisionEngineRuleManager()
+		$model : DecisionEngineInputMessage(m: workExperience)
+		eval($rule.getScore("WORKEXPERIENCE4",1) > 0)
+		eval($rule.getMinValue() <= m && m < $rule.getMaxValue())
+   	then
+   		$rule.setRuleScore($rule.getScore(drools.getRule().getName()));
+   		$model.setWorkExperienceScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "WORKEXPERIENCE5"
+ruleflow-group "OccupationScore"
+activation-group "workExperienceScore"
+lock-on-active true
+// 工作年限5
+	when
+		$rule : DecisionEngineRuleManager()
+		$model : DecisionEngineInputMessage(m: workExperience)
+		eval($rule.getScore("WORKEXPERIENCE5",1) > 0)
+		eval(m < $rule.getMaxValue())
+   	then
+   		$rule.setRuleScore($rule.getScore(drools.getRule().getName()));
+   		$model.setWorkExperienceScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "TITLE1"
+ruleflow-group "OccupationScore"
+activation-group "titleScore"
+lock-on-active true
+// 职位为公司高层管理人员或同等职位
+	when
+		$model : DecisionEngineInputMessage(title == 0)
+		$rule : DecisionEngineRuleManager()
+   	then
+   		$rule.setRuleScore($rule.getScore(drools.getRule().getName()));
+   		$model.setTitleScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "TITLE2"
+ruleflow-group "OccupationScore"
+activation-group "titleScore"
+lock-on-active true
+// 职位为公司中层管理人员或同等职位
+	when
+		$model : DecisionEngineInputMessage(title == 1)
+		$rule : DecisionEngineRuleManager()
+   	then
+   		$rule.setRuleScore($rule.getScore(drools.getRule().getName()));
+   		$model.setTitleScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "TITLE3"
+ruleflow-group "OccupationScore"
+activation-group "titleScore"
+lock-on-active true
+// 职位为公司基层管理人员或同等职位
+	when
+		$model : DecisionEngineInputMessage(title == 2)
+		$rule : DecisionEngineRuleManager()
+   	then
+   		$rule.setRuleScore($rule.getScore(drools.getRule().getName()));
+   		$model.setTitleScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "TITLE4"
+ruleflow-group "OccupationScore"
+activation-group "titleScore"
+lock-on-active true
+// 职位为自雇人士(私营业主/个体户) 
+	when
+		$model : DecisionEngineInputMessage(title == 3)
+		$rule : DecisionEngineRuleManager()
+   	then
+   		$rule.setRuleScore($rule.getScore(drools.getRule().getName()));
+   		$model.setTitleScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "TITLE5"
+ruleflow-group "OccupationScore"
+activation-group "titleScore"
+lock-on-active true
+// 职位为员工或其它
+	when
+		$model : DecisionEngineInputMessage(title == 4)
+		$rule : DecisionEngineRuleManager()
+   	then
+   		$rule.setRuleScore($rule.getScore(drools.getRule().getName()));
+   		$model.setTitleScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "PAYROLL1"
+ruleflow-group "IncomeScore"
+lock-on-active true
+// 工资卡+查询密码验证通过
+	when
+		$model : DecisionEngineInputMessage(payroll == 1)
+		$rule : DecisionEngineRuleManager()
+   	then
+   		$rule.setRuleScore($rule.getScore(drools.getRule().getName()));
+   		$model.setPayrollScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "PAYROLL2"
+ruleflow-group "IncomeScore"
+lock-on-active true
+// 社保+密码验证通过
+	when
+		$model : DecisionEngineInputMessage(socialSecurity == 1)
+		$rule : DecisionEngineRuleManager()
+   	then
+   		$rule.setRuleScore($rule.getScore(drools.getRule().getName()));
+   		$model.setPayrollScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "PAYROLL3"
+ruleflow-group "IncomeScore"
+lock-on-active true
+// 公积金+密码验证通过
+	when
+		$model : DecisionEngineInputMessage(gjj == 1)
+		$rule : DecisionEngineRuleManager()
+   	then
+   		$rule.setRuleScore($rule.getScore(drools.getRule().getName()));
+   		$model.setPayrollScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "PAYROLL4"
+ruleflow-group "IncomeScore"
+activation-group "payrollScore"
+lock-on-active true
+// 工牌拍照
+	when
+		$model : DecisionEngineInputMessage(badge == 1)
+		$rule : DecisionEngineRuleManager()
+   	then
+   		$rule.setRuleScore($rule.getScore(drools.getRule().getName()));
+   		$model.setPayrollScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "PAYROLL5"
+ruleflow-group "IncomeScore"
+activation-group "payrollScore"
+lock-on-active true
+// 银行工资流水
+	when
+		$model : DecisionEngineInputMessage(wageWater == 1)
+		$rule : DecisionEngineRuleManager()
+   	then
+   		$rule.setRuleScore($rule.getScore(drools.getRule().getName()));
+   		$model.setPayrollScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "PAYROLL6"
+ruleflow-group "IncomeScore"
+activation-group "payrollScore"
+lock-on-active true
+// 公司收入证明
+	when
+		$model : DecisionEngineInputMessage(incomeCert == 1)
+		$rule : DecisionEngineRuleManager()
+   	then
+   		$rule.setRuleScore($rule.getScore(drools.getRule().getName()));
+   		$model.setPayrollScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "HASHOUSE1"
+ruleflow-group "PropertyScore"
+activation-group "hasHouseScore"
+lock-on-active true
+// 租房
+	when
+		$model : DecisionEngineInputMessage(hasHouse == 0)
+		$rule : DecisionEngineRuleManager()
+   	then
+   		$rule.setRuleScore($rule.getScore(drools.getRule().getName()));
+   		$model.setHasHouseScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "HASHOUSE2"
+ruleflow-group "PropertyScore"
+activation-group "hasHouseScore"
+lock-on-active true
+// 公司房
+	when
+		$model : DecisionEngineInputMessage(hasHouse == 1)
+		$rule : DecisionEngineRuleManager()
+   	then
+   		$rule.setRuleScore($rule.getScore(drools.getRule().getName()));
+   		$model.setHasHouseScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "HASHOUSE3"
+ruleflow-group "PropertyScore"
+activation-group "hasHouseScore"
+lock-on-active true
+// 直属亲戚房
+	when
+		$model : DecisionEngineInputMessage(hasHouse == 2)
+		$rule : DecisionEngineRuleManager()
+   	then
+   		$rule.setRuleScore($rule.getScore(drools.getRule().getName()));
+   		$model.setHasHouseScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "HASHOUSE4"
+ruleflow-group "PropertyScore"
+activation-group "hasHouseScore"
+lock-on-active true
+// 有房无按揭
+	when
+		$model : DecisionEngineInputMessage(hasHouse == 3)
+		$rule : DecisionEngineRuleManager()
+   	then
+   		$rule.setRuleScore($rule.getScore(drools.getRule().getName()));
+   		$model.setHasHouseScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "HASHOUSE5"
+ruleflow-group "PropertyScore"
+activation-group "hasHouseScore"
+lock-on-active true
+// 有房有按揭
+	when
+		$model : DecisionEngineInputMessage(hasHouse == 4)
+		$rule : DecisionEngineRuleManager()
+   	then
+   		$rule.setRuleScore($rule.getScore(drools.getRule().getName()));
+   		$model.setHasHouseScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "HASHOUSE6"
+ruleflow-group "PropertyScore"
+activation-group "hasHouseScore"
+lock-on-active true
+// 小产权房
+	when
+		$model : DecisionEngineInputMessage(hasHouse == 5)
+		$rule : DecisionEngineRuleManager()
+   	then
+   		$rule.setRuleScore($rule.getScore(drools.getRule().getName()));
+   		$model.setHasHouseScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "HASHOUSE7"
+ruleflow-group "PropertyScore"
+activation-group "hasHouseScore"
+lock-on-active true
+// 公房
+	when
+		$model : DecisionEngineInputMessage(hasHouse == 6)
+		$rule : DecisionEngineRuleManager()
+   	then
+   		$rule.setRuleScore($rule.getScore(drools.getRule().getName()));
+   		$model.setHasHouseScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "HASHOUSE8"
+ruleflow-group "PropertyScore"
+activation-group "hasHouseScore"
+lock-on-active true
+// 宅基地
+	when
+		$model : DecisionEngineInputMessage(hasHouse == 7)
+		$rule : DecisionEngineRuleManager()
+   	then
+   		$rule.setRuleScore($rule.getScore(drools.getRule().getName()));
+   		$model.setHasHouseScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "HASHOUSE9"
+ruleflow-group "PropertyScore"
+activation-group "hasHouseScore"
+lock-on-active true
+// 其它
+	when
+		$model : DecisionEngineInputMessage(hasHouse == 8)
+		$rule : DecisionEngineRuleManager()
+   	then
+   		$rule.setRuleScore($rule.getScore(drools.getRule().getName()));
+   		$model.setHasHouseScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "HASCAR1"
+ruleflow-group "PropertyScore"
+activation-group "hasCarScore"
+lock-on-active true
+// 无车
+	when
+		$model : DecisionEngineInputMessage(hasCar == 0)
+		$rule : DecisionEngineRuleManager()
+   	then
+   		$rule.setRuleScore($rule.getScore(drools.getRule().getName()));
+   		$model.setHasCarScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "HASCAR2"
+ruleflow-group "PropertyScore"
+activation-group "hasCarScore"
+lock-on-active true
+// 有车
+	when
+		$model : DecisionEngineInputMessage(hasCar == 1)
+		$rule : DecisionEngineRuleManager()
+   	then
+   		$rule.setRuleScore($rule.getScore(drools.getRule().getName()));
+   		$model.setHasCarScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "HASINSURANCE1"
+ruleflow-group "PropertyScore"
+activation-group "hasInsuranceScore"
+lock-on-active true
+// 无商业保险
+	when
+		$model : DecisionEngineInputMessage(hasInsurance == 0)
+		$rule : DecisionEngineRuleManager()
+   	then
+   		$rule.setRuleScore($rule.getScore(drools.getRule().getName()));
+   		$model.setHasInsuranceScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "HASINSURANCE2"
+ruleflow-group "PropertyScore"
+activation-group "hasInsuranceScore"
+lock-on-active true
+// 有商业保险
+	when
+		$model : DecisionEngineInputMessage(hasInsurance == 1)
+		$rule : DecisionEngineRuleManager()
+   	then
+   		$rule.setRuleScore($rule.getScore(drools.getRule().getName()));
+   		$model.setHasInsuranceScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "HASNATIONALDEBT1"
+ruleflow-group "PropertyScore"
+activation-group "hasNationalDebtScore"
+lock-on-active true
+// 无国债
+	when
+		$model : DecisionEngineInputMessage(hasNationalDebt == 0)
+		$rule : DecisionEngineRuleManager()
+   	then
+   		$rule.setRuleScore($rule.getScore(drools.getRule().getName()));
+   		$model.setHasNationalDebtScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "HASNATIONALDEBT2"
+ruleflow-group "PropertyScore"
+activation-group "hasNationalDebtScore"
+lock-on-active true
+// 有国债
+	when
+		$model : DecisionEngineInputMessage(hasNationalDebt == 1)
+		$rule : DecisionEngineRuleManager()
+   	then
+   		$rule.setRuleScore($rule.getScore(drools.getRule().getName()));
+   		$model.setHasNationalDebtScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "HASFINPROD1"
+ruleflow-group "PropertyScore"
+activation-group "hasFinProdScore"
+lock-on-active true
+// 无理财产品
+	when
+		$model : DecisionEngineInputMessage(hasFinProd == 0)
+		$rule : DecisionEngineRuleManager()
+   	then
+   		$rule.setRuleScore($rule.getScore(drools.getRule().getName()));
+   		$model.setHasFinProdScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "HASFINPROD2"
+ruleflow-group "PropertyScore"
+activation-group "hasFinProdScore"
+lock-on-active true
+// 有理财产品
+	when
+		$model : DecisionEngineInputMessage(hasFinProd == 1)
+		$rule : DecisionEngineRuleManager()
+   	then
+   		$rule.setRuleScore($rule.getScore(drools.getRule().getName()));
+   		$model.setHasFinProdScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "MOBILELIFE1"
+ruleflow-group "BehaviorScore"
+activation-group "mobileLifeScore"
+lock-on-active true
+// 手机号使用年限<6个月
+	when
+		$rule : DecisionEngineRuleManager()
+		$model : DecisionEngineInputMessage(m: mobileLife)
+		eval($rule.getScore("MOBILELIFE1",1) > 0)
+		eval(m < $rule.getMaxValue())
+   	then
+   		$rule.setRuleScore($rule.getScore(drools.getRule().getName()));
+   		$model.setMobileLifeScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "MOBILELIFE2"
+ruleflow-group "BehaviorScore"
+activation-group "mobileLifeScore"
+lock-on-active true
+// 手机号使用年限在6个月-1年
+	when
+		$rule : DecisionEngineRuleManager()
+		$model : DecisionEngineInputMessage(m: mobileLife)
+		eval($rule.getScore("MOBILELIFE2",1) > 0)
+		eval($rule.getMinValue() <= m && m < $rule.getMaxValue())
+   	then
+   		$rule.setRuleScore($rule.getScore(drools.getRule().getName()));
+   		$model.setMobileLifeScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "MOBILELIFE3"
+ruleflow-group "BehaviorScore"
+activation-group "mobileLifeScore"
+lock-on-active true
+// 手机号使用年限在1-2年
+	when
+		$rule : DecisionEngineRuleManager()
+		$model : DecisionEngineInputMessage(m: mobileLife)
+		eval($rule.getScore("MOBILELIFE3",1) > 0)
+		eval($rule.getMinValue() <= m && m < $rule.getMaxValue())
+   	then
+   		$rule.setRuleScore($rule.getScore(drools.getRule().getName()));
+   		$model.setMobileLifeScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "MOBILELIFE4"
+ruleflow-group "BehaviorScore"
+activation-group "mobileLifeScore"
+lock-on-active true
+// 手机号使用年限>2年
+	when
+		$rule : DecisionEngineRuleManager()
+		$model : DecisionEngineInputMessage(m: mobileLife)
+		eval($rule.getScore("MOBILELIFE4",1) > 0)
+		eval($rule.getMinValue() <= m)
+   	then
+   		$rule.setRuleScore($rule.getScore(drools.getRule().getName()));
+   		$model.setMobileLifeScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "RESIDENCEMONTH1"
+ruleflow-group "BehaviorScore"
+activation-group "residenceMonthScore"
+lock-on-active true
+// 居住地所在年限<6个月
+	when
+		$rule : DecisionEngineRuleManager()
+		$model : DecisionEngineInputMessage(m: residenceMonth)
+		eval($rule.getScore("RESIDENCEMONTH1",1) > 0)
+		eval(m < $rule.getMaxValue())
+   	then
+   		$rule.setRuleScore($rule.getScore(drools.getRule().getName()));
+   		$model.setResidenceMonthScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "RESIDENCEMONTH2"
+ruleflow-group "BehaviorScore"
+activation-group "residenceMonthScore"
+lock-on-active true
+// 居住地所在年限在6个月-1年
+	when
+		$rule : DecisionEngineRuleManager()
+		$model : DecisionEngineInputMessage(m: residenceMonth)
+		eval($rule.getScore("RESIDENCEMONTH2",1) > 0)
+		eval($rule.getMinValue() <= m && m < $rule.getMaxValue())
+   	then
+   		$rule.setRuleScore($rule.getScore(drools.getRule().getName()));
+   		$model.setResidenceMonthScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "RESIDENCEMONTH3"
+ruleflow-group "BehaviorScore"
+activation-group "residenceMonthScore"
+lock-on-active true
+// 居住地所在年限在1-2年
+	when
+		$rule : DecisionEngineRuleManager()
+		$model : DecisionEngineInputMessage(m: residenceMonth)
+		eval($rule.getScore("RESIDENCEMONTH3",1) > 0)
+		eval($rule.getMinValue() <= m && m < $rule.getMaxValue())
+   	then
+   		$rule.setRuleScore($rule.getScore(drools.getRule().getName()));
+   		$model.setResidenceMonthScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "RESIDENCEMONTH4"
+ruleflow-group "BehaviorScore"
+activation-group "residenceMonthScore"
+lock-on-active true
+// 居住地所在年限>2年
+	when
+		$rule : DecisionEngineRuleManager()
+		$model : DecisionEngineInputMessage(m: residenceMonth)
+		eval($rule.getScore("RESIDENCEMONTH4",1) > 0)
+		eval($rule.getMaxValue() <= m)
+   	then
+   		$rule.setRuleScore($rule.getScore(drools.getRule().getName()));
+   		$model.setResidenceMonthScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "LOANTERM1"
+ruleflow-group "ProductScore"
+activation-group "loanTermScore"
+lock-on-active true
+// 贷款期限36个月
+	when
+		$rule : DecisionEngineRuleManager()
+		$model : DecisionEngineInputMessage(m: loanTerm)
+		eval($rule.getScore("LOANTERM1",1) > 0)
+		eval($rule.getMinValue() == m)
+   	then
+   		$rule.setRuleScore($rule.getScore(drools.getRule().getName()));
+   		$model.setLoanTermScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "LOANTERM2"
+ruleflow-group "ProductScore"
+activation-group "loanTermScore"
+lock-on-active true
+// 贷款期限24个月
+	when
+		$rule : DecisionEngineRuleManager()
+		$model : DecisionEngineInputMessage(m: loanTerm)
+		eval($rule.getScore("LOANTERM2",1) > 0)
+		eval($rule.getMinValue() == m)
+   	then
+   		$rule.setRuleScore($rule.getScore(drools.getRule().getName()));
+   		$model.setLoanTermScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "LOANTERM3"
+ruleflow-group "ProductScore"
+activation-group "loanTermScore"
+lock-on-active true
+// 贷款期限12个月
+	when
+		$rule : DecisionEngineRuleManager()
+		$model : DecisionEngineInputMessage(m: loanTerm)
+		eval($rule.getScore("LOANTERM3",1) > 0)
+		eval($rule.getMinValue() == m)
+   	then
+   		$rule.setRuleScore($rule.getScore(drools.getRule().getName()));
+   		$model.setLoanTermScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "LOANTERM4"
+ruleflow-group "ProductScore"
+activation-group "loanTermScore"
+lock-on-active true
+// 贷款期限6个月
+	when
+		$rule : DecisionEngineRuleManager()
+		$model : DecisionEngineInputMessage(m: loanTerm)
+		eval($rule.getScore("LOANTERM4",1) > 0)
+		eval($rule.getMinValue() == m)
+   	then
+   		$rule.setRuleScore($rule.getScore(drools.getRule().getName()));
+   		$model.setLoanTermScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "DOWNPAYMENTRATE1"
+ruleflow-group "ProductScore"
+activation-group "downPaymentRateScore"
+lock-on-active true
+// 首付比例大于等于60%
+	when
+		$rule : DecisionEngineRuleManager()
+		$model : DecisionEngineInputMessage(m: downPaymentRate)
+		eval($rule.getScore("DOWNPAYMENTRATE1",1) > 0)
+		eval($rule.getMinValue() <= m*100)
+   	then
+   		$rule.setRuleScore($rule.getScore(drools.getRule().getName()));
+   		$model.setDownPaymentRateScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "DOWNPAYMENTRATE2"
+ruleflow-group "ProductScore"
+activation-group "downPaymentRateScore"
+lock-on-active true
+// 50%<=首付比例<60%
+	when
+		$rule : DecisionEngineRuleManager()
+		$model : DecisionEngineInputMessage(m: downPaymentRate)
+		eval($rule.getScore("DOWNPAYMENTRATE2",1) > 0)
+		eval($rule.getMinValue() <= m*100 && m*100 < $rule.getMaxValue())
+   	then
+   		$rule.setRuleScore($rule.getScore(drools.getRule().getName()));
+   		$model.setDownPaymentRateScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "DOWNPAYMENTRATE3"
+ruleflow-group "ProductScore"
+activation-group "downPaymentRateScore"
+lock-on-active true
+// 40%<首付比例<50%
+	when
+		$rule : DecisionEngineRuleManager()
+		$model : DecisionEngineInputMessage(m: downPaymentRate)
+		eval($rule.getScore("DOWNPAYMENTRATE3",1) > 0)
+		eval($rule.getMinValue() <= m*100 && m*100 < $rule.getMaxValue())
+   	then
+   		$rule.setRuleScore($rule.getScore(drools.getRule().getName()));
+   		$model.setDownPaymentRateScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "DOWNPAYMENTRATE4"
+ruleflow-group "ProductScore"
+activation-group "downPaymentRateScore"
+lock-on-active true
+// 30%<首付比例<40%
+	when
+		$rule : DecisionEngineRuleManager()
+		$model : DecisionEngineInputMessage(m: downPaymentRate)
+		eval($rule.getScore("DOWNPAYMENTRATE4",1) > 0)
+		eval($rule.getMinValue() <= m*100 && m*100 < $rule.getMaxValue())
+   	then
+   		$rule.setRuleScore($rule.getScore(drools.getRule().getName()));
+   		$model.setDownPaymentRateScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "DOWNPAYMENTRATE5"
+ruleflow-group "ProductScore"
+activation-group "downPaymentRateScore"
+lock-on-active true
+// 首付比例<30%
+	when
+		$rule : DecisionEngineRuleManager()
+		$model : DecisionEngineInputMessage(m: downPaymentRate)
+		eval($rule.getScore("DOWNPAYMENTRATE5",1) > 0)
+		eval(m*100 < $rule.getMaxValue())
+   	then
+   		$rule.setRuleScore($rule.getScore(drools.getRule().getName()));
+   		$model.setDownPaymentRateScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end

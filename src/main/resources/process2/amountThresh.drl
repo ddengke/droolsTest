@@ -1,0 +1,26 @@
+package com.credan.appScoreCard
+
+import com.sample.DecisionEngineInputMessage;
+import com.sample.DecisionEngineRuleManager;
+
+rule "AMOUNTTHRESH1"
+ruleflow-group "TestGroup"
+salience 0
+activation-group "group1"
+lock-on-active true
+	when
+		eval(true)
+   	then
+   		System.out.println("This is rule AMOUNTTHRESH1");
+end
+
+rule "AMOUNTTHRESH2"
+ruleflow-group "TestGroup"
+salience 99
+activation-group "group1"
+lock-on-active true
+	when
+		eval(true)
+   	then
+   		System.out.println("This is rule AMOUNTTHRESH2");
+end

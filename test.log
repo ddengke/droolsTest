@@ -1,0 +1,1118 @@
+<object-stream>
+<org.drools.core.audit.WorkingMemoryLog>
+  <version>6.1</version>
+  <events>
+    <org.drools.core.audit.event.ObjectLogEvent>
+      <type>1</type>
+      <factId>1</factId>
+      <objectToString>com.sample.DecisionEngineInputMessage@44e5b006</objectToString>
+    </org.drools.core.audit.event.ObjectLogEvent>
+    <org.drools.core.audit.event.ObjectLogEvent>
+      <type>1</type>
+      <factId>2</factId>
+      <objectToString>com.sample.DecisionEngineRuleManager@7ba25bd</objectToString>
+    </org.drools.core.audit.event.ObjectLogEvent>
+    <org.drools.core.audit.event.RuleFlowLogEvent>
+      <type>8</type>
+      <processId>applycheck</processId>
+      <processName>applycheck Process</processName>
+      <processInstanceId>1</processInstanceId>
+    </org.drools.core.audit.event.RuleFlowLogEvent>
+    <org.drools.core.audit.event.RuleFlowNodeLogEvent>
+      <type>24</type>
+      <processId>applycheck</processId>
+      <processName>applycheck Process</processName>
+      <processInstanceId>1</processInstanceId>
+      <nodeId>_1</nodeId>
+      <nodeName>StartProcess</nodeName>
+      <nodeInstanceId>0</nodeInstanceId>
+    </org.drools.core.audit.event.RuleFlowNodeLogEvent>
+    <org.drools.core.audit.event.RuleFlowNodeLogEvent>
+      <type>26</type>
+      <processId>applycheck</processId>
+      <processName>applycheck Process</processName>
+      <processInstanceId>1</processInstanceId>
+      <nodeId>_1</nodeId>
+      <nodeName>StartProcess</nodeName>
+      <nodeInstanceId>0</nodeInstanceId>
+    </org.drools.core.audit.event.RuleFlowNodeLogEvent>
+    <org.drools.core.audit.event.RuleFlowNodeLogEvent>
+      <type>24</type>
+      <processId>applycheck</processId>
+      <processName>applycheck Process</processName>
+      <processInstanceId>1</processInstanceId>
+      <nodeId>_jbpm-unique-15</nodeId>
+      <nodeName>Gateway</nodeName>
+      <nodeInstanceId>1</nodeInstanceId>
+    </org.drools.core.audit.event.RuleFlowNodeLogEvent>
+    <org.drools.core.audit.event.RuleFlowNodeLogEvent>
+      <type>26</type>
+      <processId>applycheck</processId>
+      <processName>applycheck Process</processName>
+      <processInstanceId>1</processInstanceId>
+      <nodeId>_jbpm-unique-15</nodeId>
+      <nodeName>Gateway</nodeName>
+      <nodeInstanceId>1</nodeInstanceId>
+    </org.drools.core.audit.event.RuleFlowNodeLogEvent>
+    <org.drools.core.audit.event.RuleFlowNodeLogEvent>
+      <type>24</type>
+      <processId>applycheck</processId>
+      <processName>applycheck Process</processName>
+      <processInstanceId>1</processInstanceId>
+      <nodeId>_jbpm-unique-17</nodeId>
+      <nodeName>MarriageCheck</nodeName>
+      <nodeInstanceId>3</nodeInstanceId>
+    </org.drools.core.audit.event.RuleFlowNodeLogEvent>
+    <org.drools.core.audit.event.RuleFlowGroupLogEvent>
+      <type>12</type>
+      <groupName>marriageCheck</groupName>
+      <size>1</size>
+    </org.drools.core.audit.event.RuleFlowGroupLogEvent>
+    <org.drools.core.audit.event.RuleFlowGroupLogEvent>
+      <type>13</type>
+      <groupName>marriageCheck</groupName>
+      <size>1</size>
+    </org.drools.core.audit.event.RuleFlowGroupLogEvent>
+    <org.drools.core.audit.event.RuleFlowNodeLogEvent>
+      <type>25</type>
+      <processId>applycheck</processId>
+      <processName>applycheck Process</processName>
+      <processInstanceId>1</processInstanceId>
+      <nodeId>_jbpm-unique-17</nodeId>
+      <nodeName>MarriageCheck</nodeName>
+      <nodeInstanceId>3</nodeInstanceId>
+    </org.drools.core.audit.event.RuleFlowNodeLogEvent>
+    <org.drools.core.audit.event.RuleFlowNodeLogEvent>
+      <type>27</type>
+      <processId>applycheck</processId>
+      <processName>applycheck Process</processName>
+      <processInstanceId>1</processInstanceId>
+      <nodeId>_jbpm-unique-15</nodeId>
+      <nodeName>Gateway</nodeName>
+      <nodeInstanceId>1</nodeInstanceId>
+    </org.drools.core.audit.event.RuleFlowNodeLogEvent>
+    <org.drools.core.audit.event.RuleFlowNodeLogEvent>
+      <type>26</type>
+      <processId>applycheck</processId>
+      <processName>applycheck Process</processName>
+      <processInstanceId>1</processInstanceId>
+      <nodeId>_jbpm-unique-15</nodeId>
+      <nodeName>Gateway</nodeName>
+      <nodeInstanceId>1</nodeInstanceId>
+    </org.drools.core.audit.event.RuleFlowNodeLogEvent>
+    <org.drools.core.audit.event.RuleFlowNodeLogEvent>
+      <type>24</type>
+      <processId>applycheck</processId>
+      <processName>applycheck Process</processName>
+      <processInstanceId>1</processInstanceId>
+      <nodeId>_jbpm-unique-0</nodeId>
+      <nodeName>Sex</nodeName>
+      <nodeInstanceId>4</nodeInstanceId>
+    </org.drools.core.audit.event.RuleFlowNodeLogEvent>
+    <org.drools.core.audit.event.RuleFlowGroupLogEvent>
+      <type>12</type>
+      <groupName>sexcheck</groupName>
+      <size>0</size>
+    </org.drools.core.audit.event.RuleFlowGroupLogEvent>
+    <org.drools.core.audit.event.RuleFlowGroupLogEvent>
+      <type>13</type>
+      <groupName>sexcheck</groupName>
+      <size>0</size>
+    </org.drools.core.audit.event.RuleFlowGroupLogEvent>
+    <org.drools.core.audit.event.RuleFlowNodeLogEvent>
+      <type>25</type>
+      <processId>applycheck</processId>
+      <processName>applycheck Process</processName>
+      <processInstanceId>1</processInstanceId>
+      <nodeId>_jbpm-unique-0</nodeId>
+      <nodeName>Sex</nodeName>
+      <nodeInstanceId>4</nodeInstanceId>
+    </org.drools.core.audit.event.RuleFlowNodeLogEvent>
+    <org.drools.core.audit.event.RuleFlowNodeLogEvent>
+      <type>27</type>
+      <processId>applycheck</processId>
+      <processName>applycheck Process</processName>
+      <processInstanceId>1</processInstanceId>
+      <nodeId>_jbpm-unique-15</nodeId>
+      <nodeName>Gateway</nodeName>
+      <nodeInstanceId>1</nodeInstanceId>
+    </org.drools.core.audit.event.RuleFlowNodeLogEvent>
+    <org.drools.core.audit.event.RuleFlowNodeLogEvent>
+      <type>26</type>
+      <processId>applycheck</processId>
+      <processName>applycheck Process</processName>
+      <processInstanceId>1</processInstanceId>
+      <nodeId>_jbpm-unique-15</nodeId>
+      <nodeName>Gateway</nodeName>
+      <nodeInstanceId>1</nodeInstanceId>
+    </org.drools.core.audit.event.RuleFlowNodeLogEvent>
+    <org.drools.core.audit.event.RuleFlowNodeLogEvent>
+      <type>24</type>
+      <processId>applycheck</processId>
+      <processName>applycheck Process</processName>
+      <processInstanceId>1</processInstanceId>
+      <nodeId>_jbpm-unique-13</nodeId>
+      <nodeName>AgeCheck</nodeName>
+      <nodeInstanceId>2</nodeInstanceId>
+    </org.drools.core.audit.event.RuleFlowNodeLogEvent>
+    <org.drools.core.audit.event.RuleFlowGroupLogEvent>
+      <type>12</type>
+      <groupName>ageCheck</groupName>
+      <size>4</size>
+    </org.drools.core.audit.event.RuleFlowGroupLogEvent>
+    <org.drools.core.audit.event.RuleFlowGroupLogEvent>
+      <type>13</type>
+      <groupName>ageCheck</groupName>
+      <size>4</size>
+    </org.drools.core.audit.event.RuleFlowGroupLogEvent>
+    <org.drools.core.audit.event.RuleFlowNodeLogEvent>
+      <type>25</type>
+      <processId>applycheck</processId>
+      <processName>applycheck Process</processName>
+      <processInstanceId>1</processInstanceId>
+      <nodeId>_jbpm-unique-13</nodeId>
+      <nodeName>AgeCheck</nodeName>
+      <nodeInstanceId>2</nodeInstanceId>
+    </org.drools.core.audit.event.RuleFlowNodeLogEvent>
+    <org.drools.core.audit.event.RuleFlowNodeLogEvent>
+      <type>27</type>
+      <processId>applycheck</processId>
+      <processName>applycheck Process</processName>
+      <processInstanceId>1</processInstanceId>
+      <nodeId>_jbpm-unique-15</nodeId>
+      <nodeName>Gateway</nodeName>
+      <nodeInstanceId>1</nodeInstanceId>
+    </org.drools.core.audit.event.RuleFlowNodeLogEvent>
+    <org.drools.core.audit.event.RuleFlowNodeLogEvent>
+      <type>26</type>
+      <processId>applycheck</processId>
+      <processName>applycheck Process</processName>
+      <processInstanceId>1</processInstanceId>
+      <nodeId>_jbpm-unique-15</nodeId>
+      <nodeName>Gateway</nodeName>
+      <nodeInstanceId>1</nodeInstanceId>
+    </org.drools.core.audit.event.RuleFlowNodeLogEvent>
+    <org.drools.core.audit.event.RuleFlowNodeLogEvent>
+      <type>24</type>
+      <processId>applycheck</processId>
+      <processName>applycheck Process</processName>
+      <processInstanceId>1</processInstanceId>
+      <nodeId>_jbpm-unique-1</nodeId>
+      <nodeName>SheBao</nodeName>
+      <nodeInstanceId>5</nodeInstanceId>
+    </org.drools.core.audit.event.RuleFlowNodeLogEvent>
+    <org.drools.core.audit.event.RuleFlowGroupLogEvent>
+      <type>12</type>
+      <groupName>sheBaocheck</groupName>
+      <size>0</size>
+    </org.drools.core.audit.event.RuleFlowGroupLogEvent>
+    <org.drools.core.audit.event.RuleFlowGroupLogEvent>
+      <type>13</type>
+      <groupName>sheBaocheck</groupName>
+      <size>0</size>
+    </org.drools.core.audit.event.RuleFlowGroupLogEvent>
+    <org.drools.core.audit.event.RuleFlowNodeLogEvent>
+      <type>25</type>
+      <processId>applycheck</processId>
+      <processName>applycheck Process</processName>
+      <processInstanceId>1</processInstanceId>
+      <nodeId>_jbpm-unique-1</nodeId>
+      <nodeName>SheBao</nodeName>
+      <nodeInstanceId>5</nodeInstanceId>
+    </org.drools.core.audit.event.RuleFlowNodeLogEvent>
+    <org.drools.core.audit.event.RuleFlowNodeLogEvent>
+      <type>27</type>
+      <processId>applycheck</processId>
+      <processName>applycheck Process</processName>
+      <processInstanceId>1</processInstanceId>
+      <nodeId>_jbpm-unique-15</nodeId>
+      <nodeName>Gateway</nodeName>
+      <nodeInstanceId>1</nodeInstanceId>
+    </org.drools.core.audit.event.RuleFlowNodeLogEvent>
+    <org.drools.core.audit.event.RuleFlowNodeLogEvent>
+      <type>25</type>
+      <processId>applycheck</processId>
+      <processName>applycheck Process</processName>
+      <processInstanceId>1</processInstanceId>
+      <nodeId>_jbpm-unique-15</nodeId>
+      <nodeName>Gateway</nodeName>
+      <nodeInstanceId>1</nodeInstanceId>
+    </org.drools.core.audit.event.RuleFlowNodeLogEvent>
+    <org.drools.core.audit.event.RuleFlowNodeLogEvent>
+      <type>27</type>
+      <processId>applycheck</processId>
+      <processName>applycheck Process</processName>
+      <processInstanceId>1</processInstanceId>
+      <nodeId>_1</nodeId>
+      <nodeName>StartProcess</nodeName>
+      <nodeInstanceId>0</nodeInstanceId>
+    </org.drools.core.audit.event.RuleFlowNodeLogEvent>
+    <org.drools.core.audit.event.RuleFlowNodeLogEvent>
+      <type>25</type>
+      <processId>applycheck</processId>
+      <processName>applycheck Process</processName>
+      <processInstanceId>1</processInstanceId>
+      <nodeId>_1</nodeId>
+      <nodeName>StartProcess</nodeName>
+      <nodeInstanceId>0</nodeInstanceId>
+    </org.drools.core.audit.event.RuleFlowNodeLogEvent>
+    <org.drools.core.audit.event.RuleFlowLogEvent>
+      <type>9</type>
+      <processId>applycheck</processId>
+      <processName>applycheck Process</processName>
+      <processInstanceId>1</processInstanceId>
+    </org.drools.core.audit.event.RuleFlowLogEvent>
+    <org.drools.core.audit.event.ActivationLogEvent>
+      <type>4</type>
+      <activationId>APP_AGE2 [2, 1]</activationId>
+      <rule>APP_AGE2</rule>
+      <declarations>$model=com.sample.DecisionEngineInputMessage@44e5b006; $rule=com.sample.DecisionEngineRuleManager@7ba25bd</declarations>
+      <ruleFlowGroup>ageCheck</ruleFlowGroup>
+      <factHandleIds>2,1</factHandleIds>
+    </org.drools.core.audit.event.ActivationLogEvent>
+    <org.drools.core.audit.event.ActivationLogEvent>
+      <type>4</type>
+      <activationId>TOTAL [2, 1]</activationId>
+      <rule>TOTAL</rule>
+      <declarations>$model=com.sample.DecisionEngineInputMessage@44e5b006; $rule=com.sample.DecisionEngineRuleManager@7ba25bd</declarations>
+      <ruleFlowGroup>totalScore</ruleFlowGroup>
+      <factHandleIds>2,1</factHandleIds>
+    </org.drools.core.audit.event.ActivationLogEvent>
+    <org.drools.core.audit.event.ActivationLogEvent>
+      <type>4</type>
+      <activationId>RISKLEVEL1 [2, 1]</activationId>
+      <rule>RISKLEVEL1</rule>
+      <declarations>$model=com.sample.DecisionEngineInputMessage@44e5b006; $rule=com.sample.DecisionEngineRuleManager@7ba25bd</declarations>
+      <ruleFlowGroup>riskLevel</ruleFlowGroup>
+      <factHandleIds>2,1</factHandleIds>
+    </org.drools.core.audit.event.ActivationLogEvent>
+    <org.drools.core.audit.event.ActivationLogEvent>
+      <type>4</type>
+      <activationId>FINALAMOUNT [2, 1]</activationId>
+      <rule>FINALAMOUNT</rule>
+      <declarations>$model=com.sample.DecisionEngineInputMessage@44e5b006; max=0</declarations>
+      <ruleFlowGroup>finalAmount</ruleFlowGroup>
+      <factHandleIds>2,1</factHandleIds>
+    </org.drools.core.audit.event.ActivationLogEvent>
+    <org.drools.core.audit.event.ActivationLogEvent>
+      <type>4</type>
+      <activationId>MARRIAGE2 [1, 2]</activationId>
+      <rule>MARRIAGE2</rule>
+      <declarations>$model=com.sample.DecisionEngineInputMessage@44e5b006; $rule=com.sample.DecisionEngineRuleManager@7ba25bd</declarations>
+      <ruleFlowGroup>marriageCheck</ruleFlowGroup>
+      <factHandleIds>2,1</factHandleIds>
+    </org.drools.core.audit.event.ActivationLogEvent>
+    <org.drools.core.audit.event.RuleFlowGroupLogEvent>
+      <type>14</type>
+      <groupName>sheBaocheck</groupName>
+      <size>0</size>
+    </org.drools.core.audit.event.RuleFlowGroupLogEvent>
+    <org.drools.core.audit.event.RuleFlowGroupLogEvent>
+      <type>15</type>
+      <groupName>sheBaocheck</groupName>
+      <size>0</size>
+    </org.drools.core.audit.event.RuleFlowGroupLogEvent>
+    <org.drools.core.audit.event.RuleFlowNodeLogEvent>
+      <type>26</type>
+      <processId>applycheck</processId>
+      <processName>applycheck Process</processName>
+      <processInstanceId>1</processInstanceId>
+      <nodeId>_jbpm-unique-1</nodeId>
+      <nodeName>SheBao</nodeName>
+      <nodeInstanceId>5</nodeInstanceId>
+    </org.drools.core.audit.event.RuleFlowNodeLogEvent>
+    <org.drools.core.audit.event.RuleFlowNodeLogEvent>
+      <type>24</type>
+      <processId>applycheck</processId>
+      <processName>applycheck Process</processName>
+      <processInstanceId>1</processInstanceId>
+      <nodeId>_jbpm-unique-16</nodeId>
+      <nodeName>Gateway</nodeName>
+      <nodeInstanceId>6</nodeInstanceId>
+    </org.drools.core.audit.event.RuleFlowNodeLogEvent>
+    <org.drools.core.audit.event.RuleFlowNodeLogEvent>
+      <type>25</type>
+      <processId>applycheck</processId>
+      <processName>applycheck Process</processName>
+      <processInstanceId>1</processInstanceId>
+      <nodeId>_jbpm-unique-16</nodeId>
+      <nodeName>Gateway</nodeName>
+      <nodeInstanceId>6</nodeInstanceId>
+    </org.drools.core.audit.event.RuleFlowNodeLogEvent>
+    <org.drools.core.audit.event.RuleFlowNodeLogEvent>
+      <type>27</type>
+      <processId>applycheck</processId>
+      <processName>applycheck Process</processName>
+      <processInstanceId>1</processInstanceId>
+      <nodeId>_jbpm-unique-1</nodeId>
+      <nodeName>SheBao</nodeName>
+      <nodeInstanceId>5</nodeInstanceId>
+    </org.drools.core.audit.event.RuleFlowNodeLogEvent>
+    <org.drools.core.audit.event.ActivationLogEvent>
+      <type>6</type>
+      <activationId>APP_AGE2 [2, 1]</activationId>
+      <rule>APP_AGE2</rule>
+      <declarations>$model=com.sample.DecisionEngineInputMessage@44e5b006; $rule=com.sample.DecisionEngineRuleManager@7ba25bd</declarations>
+      <ruleFlowGroup>ageCheck</ruleFlowGroup>
+      <factHandleIds>2,1</factHandleIds>
+    </org.drools.core.audit.event.ActivationLogEvent>
+    <org.drools.core.audit.event.ActivationLogEvent>
+      <type>7</type>
+      <activationId>APP_AGE2 [2, 1]</activationId>
+      <rule>APP_AGE2</rule>
+      <declarations>$model=com.sample.DecisionEngineInputMessage@44e5b006; $rule=com.sample.DecisionEngineRuleManager@7ba25bd</declarations>
+      <ruleFlowGroup>ageCheck</ruleFlowGroup>
+      <factHandleIds>2,1</factHandleIds>
+    </org.drools.core.audit.event.ActivationLogEvent>
+    <org.drools.core.audit.event.RuleFlowGroupLogEvent>
+      <type>14</type>
+      <groupName>ageCheck</groupName>
+      <size>0</size>
+    </org.drools.core.audit.event.RuleFlowGroupLogEvent>
+    <org.drools.core.audit.event.RuleFlowGroupLogEvent>
+      <type>15</type>
+      <groupName>ageCheck</groupName>
+      <size>0</size>
+    </org.drools.core.audit.event.RuleFlowGroupLogEvent>
+    <org.drools.core.audit.event.RuleFlowNodeLogEvent>
+      <type>26</type>
+      <processId>applycheck</processId>
+      <processName>applycheck Process</processName>
+      <processInstanceId>1</processInstanceId>
+      <nodeId>_jbpm-unique-13</nodeId>
+      <nodeName>AgeCheck</nodeName>
+      <nodeInstanceId>2</nodeInstanceId>
+    </org.drools.core.audit.event.RuleFlowNodeLogEvent>
+    <org.drools.core.audit.event.RuleFlowNodeLogEvent>
+      <type>24</type>
+      <processId>applycheck</processId>
+      <processName>applycheck Process</processName>
+      <processInstanceId>1</processInstanceId>
+      <nodeId>_jbpm-unique-16</nodeId>
+      <nodeName>Gateway</nodeName>
+      <nodeInstanceId>6</nodeInstanceId>
+    </org.drools.core.audit.event.RuleFlowNodeLogEvent>
+    <org.drools.core.audit.event.RuleFlowNodeLogEvent>
+      <type>25</type>
+      <processId>applycheck</processId>
+      <processName>applycheck Process</processName>
+      <processInstanceId>1</processInstanceId>
+      <nodeId>_jbpm-unique-16</nodeId>
+      <nodeName>Gateway</nodeName>
+      <nodeInstanceId>6</nodeInstanceId>
+    </org.drools.core.audit.event.RuleFlowNodeLogEvent>
+    <org.drools.core.audit.event.RuleFlowNodeLogEvent>
+      <type>27</type>
+      <processId>applycheck</processId>
+      <processName>applycheck Process</processName>
+      <processInstanceId>1</processInstanceId>
+      <nodeId>_jbpm-unique-13</nodeId>
+      <nodeName>AgeCheck</nodeName>
+      <nodeInstanceId>2</nodeInstanceId>
+    </org.drools.core.audit.event.RuleFlowNodeLogEvent>
+    <org.drools.core.audit.event.RuleFlowGroupLogEvent>
+      <type>14</type>
+      <groupName>sexcheck</groupName>
+      <size>0</size>
+    </org.drools.core.audit.event.RuleFlowGroupLogEvent>
+    <org.drools.core.audit.event.RuleFlowGroupLogEvent>
+      <type>15</type>
+      <groupName>sexcheck</groupName>
+      <size>0</size>
+    </org.drools.core.audit.event.RuleFlowGroupLogEvent>
+    <org.drools.core.audit.event.RuleFlowNodeLogEvent>
+      <type>26</type>
+      <processId>applycheck</processId>
+      <processName>applycheck Process</processName>
+      <processInstanceId>1</processInstanceId>
+      <nodeId>_jbpm-unique-0</nodeId>
+      <nodeName>Sex</nodeName>
+      <nodeInstanceId>4</nodeInstanceId>
+    </org.drools.core.audit.event.RuleFlowNodeLogEvent>
+    <org.drools.core.audit.event.RuleFlowNodeLogEvent>
+      <type>24</type>
+      <processId>applycheck</processId>
+      <processName>applycheck Process</processName>
+      <processInstanceId>1</processInstanceId>
+      <nodeId>_jbpm-unique-16</nodeId>
+      <nodeName>Gateway</nodeName>
+      <nodeInstanceId>6</nodeInstanceId>
+    </org.drools.core.audit.event.RuleFlowNodeLogEvent>
+    <org.drools.core.audit.event.RuleFlowNodeLogEvent>
+      <type>25</type>
+      <processId>applycheck</processId>
+      <processName>applycheck Process</processName>
+      <processInstanceId>1</processInstanceId>
+      <nodeId>_jbpm-unique-16</nodeId>
+      <nodeName>Gateway</nodeName>
+      <nodeInstanceId>6</nodeInstanceId>
+    </org.drools.core.audit.event.RuleFlowNodeLogEvent>
+    <org.drools.core.audit.event.RuleFlowNodeLogEvent>
+      <type>27</type>
+      <processId>applycheck</processId>
+      <processName>applycheck Process</processName>
+      <processInstanceId>1</processInstanceId>
+      <nodeId>_jbpm-unique-0</nodeId>
+      <nodeName>Sex</nodeName>
+      <nodeInstanceId>4</nodeInstanceId>
+    </org.drools.core.audit.event.RuleFlowNodeLogEvent>
+    <org.drools.core.audit.event.ActivationLogEvent>
+      <type>6</type>
+      <activationId>MARRIAGE2 [1, 2]</activationId>
+      <rule>MARRIAGE2</rule>
+      <declarations>$model=com.sample.DecisionEngineInputMessage@44e5b006; $rule=com.sample.DecisionEngineRuleManager@7ba25bd</declarations>
+      <ruleFlowGroup>marriageCheck</ruleFlowGroup>
+      <factHandleIds>2,1</factHandleIds>
+    </org.drools.core.audit.event.ActivationLogEvent>
+    <org.drools.core.audit.event.ActivationLogEvent>
+      <type>7</type>
+      <activationId>MARRIAGE2 [1, 2]</activationId>
+      <rule>MARRIAGE2</rule>
+      <declarations>$model=com.sample.DecisionEngineInputMessage@44e5b006; $rule=com.sample.DecisionEngineRuleManager@7ba25bd</declarations>
+      <ruleFlowGroup>marriageCheck</ruleFlowGroup>
+      <factHandleIds>2,1</factHandleIds>
+    </org.drools.core.audit.event.ActivationLogEvent>
+    <org.drools.core.audit.event.RuleFlowGroupLogEvent>
+      <type>14</type>
+      <groupName>marriageCheck</groupName>
+      <size>0</size>
+    </org.drools.core.audit.event.RuleFlowGroupLogEvent>
+    <org.drools.core.audit.event.RuleFlowGroupLogEvent>
+      <type>15</type>
+      <groupName>marriageCheck</groupName>
+      <size>0</size>
+    </org.drools.core.audit.event.RuleFlowGroupLogEvent>
+    <org.drools.core.audit.event.RuleFlowNodeLogEvent>
+      <type>26</type>
+      <processId>applycheck</processId>
+      <processName>applycheck Process</processName>
+      <processInstanceId>1</processInstanceId>
+      <nodeId>_jbpm-unique-17</nodeId>
+      <nodeName>MarriageCheck</nodeName>
+      <nodeInstanceId>3</nodeInstanceId>
+    </org.drools.core.audit.event.RuleFlowNodeLogEvent>
+    <org.drools.core.audit.event.RuleFlowNodeLogEvent>
+      <type>24</type>
+      <processId>applycheck</processId>
+      <processName>applycheck Process</processName>
+      <processInstanceId>1</processInstanceId>
+      <nodeId>_jbpm-unique-16</nodeId>
+      <nodeName>Gateway</nodeName>
+      <nodeInstanceId>6</nodeInstanceId>
+    </org.drools.core.audit.event.RuleFlowNodeLogEvent>
+    <org.drools.core.audit.event.RuleFlowNodeLogEvent>
+      <type>26</type>
+      <processId>applycheck</processId>
+      <processName>applycheck Process</processName>
+      <processInstanceId>1</processInstanceId>
+      <nodeId>_jbpm-unique-16</nodeId>
+      <nodeName>Gateway</nodeName>
+      <nodeInstanceId>6</nodeInstanceId>
+    </org.drools.core.audit.event.RuleFlowNodeLogEvent>
+    <org.drools.core.audit.event.RuleFlowNodeLogEvent>
+      <type>24</type>
+      <processId>applycheck</processId>
+      <processName>applycheck Process</processName>
+      <processInstanceId>1</processInstanceId>
+      <nodeId>_jbpm-unique-2</nodeId>
+      <nodeName>TotalScore</nodeName>
+      <nodeInstanceId>7</nodeInstanceId>
+    </org.drools.core.audit.event.RuleFlowNodeLogEvent>
+    <org.drools.core.audit.event.RuleFlowGroupLogEvent>
+      <type>12</type>
+      <groupName>totalScore</groupName>
+      <size>1</size>
+    </org.drools.core.audit.event.RuleFlowGroupLogEvent>
+    <org.drools.core.audit.event.RuleFlowGroupLogEvent>
+      <type>13</type>
+      <groupName>totalScore</groupName>
+      <size>1</size>
+    </org.drools.core.audit.event.RuleFlowGroupLogEvent>
+    <org.drools.core.audit.event.RuleFlowNodeLogEvent>
+      <type>25</type>
+      <processId>applycheck</processId>
+      <processName>applycheck Process</processName>
+      <processInstanceId>1</processInstanceId>
+      <nodeId>_jbpm-unique-2</nodeId>
+      <nodeName>TotalScore</nodeName>
+      <nodeInstanceId>7</nodeInstanceId>
+    </org.drools.core.audit.event.RuleFlowNodeLogEvent>
+    <org.drools.core.audit.event.RuleFlowNodeLogEvent>
+      <type>27</type>
+      <processId>applycheck</processId>
+      <processName>applycheck Process</processName>
+      <processInstanceId>1</processInstanceId>
+      <nodeId>_jbpm-unique-16</nodeId>
+      <nodeName>Gateway</nodeName>
+      <nodeInstanceId>6</nodeInstanceId>
+    </org.drools.core.audit.event.RuleFlowNodeLogEvent>
+    <org.drools.core.audit.event.RuleFlowNodeLogEvent>
+      <type>25</type>
+      <processId>applycheck</processId>
+      <processName>applycheck Process</processName>
+      <processInstanceId>1</processInstanceId>
+      <nodeId>_jbpm-unique-16</nodeId>
+      <nodeName>Gateway</nodeName>
+      <nodeInstanceId>6</nodeInstanceId>
+    </org.drools.core.audit.event.RuleFlowNodeLogEvent>
+    <org.drools.core.audit.event.RuleFlowNodeLogEvent>
+      <type>27</type>
+      <processId>applycheck</processId>
+      <processName>applycheck Process</processName>
+      <processInstanceId>1</processInstanceId>
+      <nodeId>_jbpm-unique-17</nodeId>
+      <nodeName>MarriageCheck</nodeName>
+      <nodeInstanceId>3</nodeInstanceId>
+    </org.drools.core.audit.event.RuleFlowNodeLogEvent>
+    <org.drools.core.audit.event.ActivationLogEvent>
+      <type>6</type>
+      <activationId>TOTAL [2, 1]</activationId>
+      <rule>TOTAL</rule>
+      <declarations>$model=com.sample.DecisionEngineInputMessage@44e5b006; $rule=com.sample.DecisionEngineRuleManager@7ba25bd</declarations>
+      <ruleFlowGroup>totalScore</ruleFlowGroup>
+      <factHandleIds>2,1</factHandleIds>
+    </org.drools.core.audit.event.ActivationLogEvent>
+    <org.drools.core.audit.event.ObjectLogEvent>
+      <type>2</type>
+      <factId>2</factId>
+      <objectToString>com.sample.DecisionEngineRuleManager@7ba25bd</objectToString>
+    </org.drools.core.audit.event.ObjectLogEvent>
+    <org.drools.core.audit.event.ObjectLogEvent>
+      <type>2</type>
+      <factId>1</factId>
+      <objectToString>com.sample.DecisionEngineInputMessage@44e5b006</objectToString>
+    </org.drools.core.audit.event.ObjectLogEvent>
+    <org.drools.core.audit.event.ActivationLogEvent>
+      <type>7</type>
+      <activationId>TOTAL [2, 1]</activationId>
+      <rule>TOTAL</rule>
+      <declarations>$model=com.sample.DecisionEngineInputMessage@44e5b006; $rule=com.sample.DecisionEngineRuleManager@7ba25bd</declarations>
+      <ruleFlowGroup>totalScore</ruleFlowGroup>
+      <factHandleIds>2,1</factHandleIds>
+    </org.drools.core.audit.event.ActivationLogEvent>
+    <org.drools.core.audit.event.ActivationLogEvent>
+      <type>4</type>
+      <activationId>APP_AGE2 [2, 1]</activationId>
+      <rule>APP_AGE2</rule>
+      <declarations>$model=com.sample.DecisionEngineInputMessage@44e5b006; $rule=com.sample.DecisionEngineRuleManager@7ba25bd</declarations>
+      <ruleFlowGroup>ageCheck</ruleFlowGroup>
+      <factHandleIds>1,2</factHandleIds>
+    </org.drools.core.audit.event.ActivationLogEvent>
+    <org.drools.core.audit.event.ActivationLogEvent>
+      <type>4</type>
+      <activationId>MARRIAGE2 [1, 2]</activationId>
+      <rule>MARRIAGE2</rule>
+      <declarations>$model=com.sample.DecisionEngineInputMessage@44e5b006; $rule=com.sample.DecisionEngineRuleManager@7ba25bd</declarations>
+      <ruleFlowGroup>marriageCheck</ruleFlowGroup>
+      <factHandleIds>2,1</factHandleIds>
+    </org.drools.core.audit.event.ActivationLogEvent>
+    <org.drools.core.audit.event.RuleFlowGroupLogEvent>
+      <type>14</type>
+      <groupName>totalScore</groupName>
+      <size>0</size>
+    </org.drools.core.audit.event.RuleFlowGroupLogEvent>
+    <org.drools.core.audit.event.RuleFlowGroupLogEvent>
+      <type>15</type>
+      <groupName>totalScore</groupName>
+      <size>0</size>
+    </org.drools.core.audit.event.RuleFlowGroupLogEvent>
+    <org.drools.core.audit.event.RuleFlowNodeLogEvent>
+      <type>26</type>
+      <processId>applycheck</processId>
+      <processName>applycheck Process</processName>
+      <processInstanceId>1</processInstanceId>
+      <nodeId>_jbpm-unique-2</nodeId>
+      <nodeName>TotalScore</nodeName>
+      <nodeInstanceId>7</nodeInstanceId>
+    </org.drools.core.audit.event.RuleFlowNodeLogEvent>
+    <org.drools.core.audit.event.RuleFlowNodeLogEvent>
+      <type>24</type>
+      <processId>applycheck</processId>
+      <processName>applycheck Process</processName>
+      <processInstanceId>1</processInstanceId>
+      <nodeId>_jbpm-unique-3</nodeId>
+      <nodeName>RiskLevel</nodeName>
+      <nodeInstanceId>8</nodeInstanceId>
+    </org.drools.core.audit.event.RuleFlowNodeLogEvent>
+    <org.drools.core.audit.event.RuleFlowGroupLogEvent>
+      <type>12</type>
+      <groupName>riskLevel</groupName>
+      <size>5</size>
+    </org.drools.core.audit.event.RuleFlowGroupLogEvent>
+    <org.drools.core.audit.event.RuleFlowGroupLogEvent>
+      <type>13</type>
+      <groupName>riskLevel</groupName>
+      <size>5</size>
+    </org.drools.core.audit.event.RuleFlowGroupLogEvent>
+    <org.drools.core.audit.event.RuleFlowNodeLogEvent>
+      <type>25</type>
+      <processId>applycheck</processId>
+      <processName>applycheck Process</processName>
+      <processInstanceId>1</processInstanceId>
+      <nodeId>_jbpm-unique-3</nodeId>
+      <nodeName>RiskLevel</nodeName>
+      <nodeInstanceId>8</nodeInstanceId>
+    </org.drools.core.audit.event.RuleFlowNodeLogEvent>
+    <org.drools.core.audit.event.RuleFlowNodeLogEvent>
+      <type>27</type>
+      <processId>applycheck</processId>
+      <processName>applycheck Process</processName>
+      <processInstanceId>1</processInstanceId>
+      <nodeId>_jbpm-unique-2</nodeId>
+      <nodeName>TotalScore</nodeName>
+      <nodeInstanceId>7</nodeInstanceId>
+    </org.drools.core.audit.event.RuleFlowNodeLogEvent>
+    <org.drools.core.audit.event.ActivationLogEvent>
+      <type>6</type>
+      <activationId>RISKLEVEL1 [2, 1]</activationId>
+      <rule>RISKLEVEL1</rule>
+      <declarations>$model=com.sample.DecisionEngineInputMessage@44e5b006; $rule=com.sample.DecisionEngineRuleManager@7ba25bd</declarations>
+      <ruleFlowGroup>riskLevel</ruleFlowGroup>
+      <factHandleIds>1,2</factHandleIds>
+    </org.drools.core.audit.event.ActivationLogEvent>
+    <org.drools.core.audit.event.ObjectLogEvent>
+      <type>2</type>
+      <factId>2</factId>
+      <objectToString>com.sample.DecisionEngineRuleManager@7ba25bd</objectToString>
+    </org.drools.core.audit.event.ObjectLogEvent>
+    <org.drools.core.audit.event.ObjectLogEvent>
+      <type>2</type>
+      <factId>1</factId>
+      <objectToString>com.sample.DecisionEngineInputMessage@44e5b006</objectToString>
+    </org.drools.core.audit.event.ObjectLogEvent>
+    <org.drools.core.audit.event.ActivationLogEvent>
+      <type>7</type>
+      <activationId>RISKLEVEL1 [2, 1]</activationId>
+      <rule>RISKLEVEL1</rule>
+      <declarations>$model=com.sample.DecisionEngineInputMessage@44e5b006; $rule=com.sample.DecisionEngineRuleManager@7ba25bd</declarations>
+      <ruleFlowGroup>riskLevel</ruleFlowGroup>
+      <factHandleIds>1,2</factHandleIds>
+    </org.drools.core.audit.event.ActivationLogEvent>
+    <org.drools.core.audit.event.ActivationLogEvent>
+      <type>4</type>
+      <activationId>TOTAL [2, 1]</activationId>
+      <rule>TOTAL</rule>
+      <declarations>$model=com.sample.DecisionEngineInputMessage@44e5b006; $rule=com.sample.DecisionEngineRuleManager@7ba25bd</declarations>
+      <ruleFlowGroup>totalScore</ruleFlowGroup>
+      <factHandleIds>1,2</factHandleIds>
+    </org.drools.core.audit.event.ActivationLogEvent>
+    <org.drools.core.audit.event.ActivationLogEvent>
+      <type>4</type>
+      <activationId>AMOUNTTHRESH1 [2, 1]</activationId>
+      <rule>AMOUNTTHRESH1</rule>
+      <declarations>$model=com.sample.DecisionEngineInputMessage@44e5b006; $rule=com.sample.DecisionEngineRuleManager@7ba25bd</declarations>
+      <ruleFlowGroup>amountThresh</ruleFlowGroup>
+      <factHandleIds>1,2</factHandleIds>
+    </org.drools.core.audit.event.ActivationLogEvent>
+    <org.drools.core.audit.event.ActivationLogEvent>
+      <type>4</type>
+      <activationId>RISKRATE1 [2, 1]</activationId>
+      <rule>RISKRATE1</rule>
+      <declarations>$model=com.sample.DecisionEngineInputMessage@44e5b006; $rule=com.sample.DecisionEngineRuleManager@7ba25bd</declarations>
+      <ruleFlowGroup>riskRate</ruleFlowGroup>
+      <factHandleIds>1,2</factHandleIds>
+    </org.drools.core.audit.event.ActivationLogEvent>
+    <org.drools.core.audit.event.RuleFlowGroupLogEvent>
+      <type>14</type>
+      <groupName>riskLevel</groupName>
+      <size>0</size>
+    </org.drools.core.audit.event.RuleFlowGroupLogEvent>
+    <org.drools.core.audit.event.RuleFlowGroupLogEvent>
+      <type>15</type>
+      <groupName>riskLevel</groupName>
+      <size>0</size>
+    </org.drools.core.audit.event.RuleFlowGroupLogEvent>
+    <org.drools.core.audit.event.RuleFlowNodeLogEvent>
+      <type>26</type>
+      <processId>applycheck</processId>
+      <processName>applycheck Process</processName>
+      <processInstanceId>1</processInstanceId>
+      <nodeId>_jbpm-unique-3</nodeId>
+      <nodeName>RiskLevel</nodeName>
+      <nodeInstanceId>8</nodeInstanceId>
+    </org.drools.core.audit.event.RuleFlowNodeLogEvent>
+    <org.drools.core.audit.event.RuleFlowNodeLogEvent>
+      <type>24</type>
+      <processId>applycheck</processId>
+      <processName>applycheck Process</processName>
+      <processInstanceId>1</processInstanceId>
+      <nodeId>_jbpm-unique-5</nodeId>
+      <nodeName>Gateway</nodeName>
+      <nodeInstanceId>9</nodeInstanceId>
+    </org.drools.core.audit.event.RuleFlowNodeLogEvent>
+    <org.drools.core.audit.event.RuleFlowNodeLogEvent>
+      <type>26</type>
+      <processId>applycheck</processId>
+      <processName>applycheck Process</processName>
+      <processInstanceId>1</processInstanceId>
+      <nodeId>_jbpm-unique-5</nodeId>
+      <nodeName>Gateway</nodeName>
+      <nodeInstanceId>9</nodeInstanceId>
+    </org.drools.core.audit.event.RuleFlowNodeLogEvent>
+    <org.drools.core.audit.event.RuleFlowNodeLogEvent>
+      <type>24</type>
+      <processId>applycheck</processId>
+      <processName>applycheck Process</processName>
+      <processInstanceId>1</processInstanceId>
+      <nodeId>_jbpm-unique-4</nodeId>
+      <nodeName>amountThresh</nodeName>
+      <nodeInstanceId>10</nodeInstanceId>
+    </org.drools.core.audit.event.RuleFlowNodeLogEvent>
+    <org.drools.core.audit.event.RuleFlowGroupLogEvent>
+      <type>12</type>
+      <groupName>amountThresh</groupName>
+      <size>5</size>
+    </org.drools.core.audit.event.RuleFlowGroupLogEvent>
+    <org.drools.core.audit.event.RuleFlowGroupLogEvent>
+      <type>13</type>
+      <groupName>amountThresh</groupName>
+      <size>5</size>
+    </org.drools.core.audit.event.RuleFlowGroupLogEvent>
+    <org.drools.core.audit.event.RuleFlowNodeLogEvent>
+      <type>25</type>
+      <processId>applycheck</processId>
+      <processName>applycheck Process</processName>
+      <processInstanceId>1</processInstanceId>
+      <nodeId>_jbpm-unique-4</nodeId>
+      <nodeName>amountThresh</nodeName>
+      <nodeInstanceId>10</nodeInstanceId>
+    </org.drools.core.audit.event.RuleFlowNodeLogEvent>
+    <org.drools.core.audit.event.RuleFlowNodeLogEvent>
+      <type>27</type>
+      <processId>applycheck</processId>
+      <processName>applycheck Process</processName>
+      <processInstanceId>1</processInstanceId>
+      <nodeId>_jbpm-unique-5</nodeId>
+      <nodeName>Gateway</nodeName>
+      <nodeInstanceId>9</nodeInstanceId>
+    </org.drools.core.audit.event.RuleFlowNodeLogEvent>
+    <org.drools.core.audit.event.RuleFlowNodeLogEvent>
+      <type>26</type>
+      <processId>applycheck</processId>
+      <processName>applycheck Process</processName>
+      <processInstanceId>1</processInstanceId>
+      <nodeId>_jbpm-unique-5</nodeId>
+      <nodeName>Gateway</nodeName>
+      <nodeInstanceId>9</nodeInstanceId>
+    </org.drools.core.audit.event.RuleFlowNodeLogEvent>
+    <org.drools.core.audit.event.RuleFlowNodeLogEvent>
+      <type>24</type>
+      <processId>applycheck</processId>
+      <processName>applycheck Process</processName>
+      <processInstanceId>1</processInstanceId>
+      <nodeId>_jbpm-unique-6</nodeId>
+      <nodeName>RiskRate</nodeName>
+      <nodeInstanceId>11</nodeInstanceId>
+    </org.drools.core.audit.event.RuleFlowNodeLogEvent>
+    <org.drools.core.audit.event.RuleFlowGroupLogEvent>
+      <type>12</type>
+      <groupName>riskRate</groupName>
+      <size>15</size>
+    </org.drools.core.audit.event.RuleFlowGroupLogEvent>
+    <org.drools.core.audit.event.RuleFlowGroupLogEvent>
+      <type>13</type>
+      <groupName>riskRate</groupName>
+      <size>15</size>
+    </org.drools.core.audit.event.RuleFlowGroupLogEvent>
+    <org.drools.core.audit.event.RuleFlowNodeLogEvent>
+      <type>25</type>
+      <processId>applycheck</processId>
+      <processName>applycheck Process</processName>
+      <processInstanceId>1</processInstanceId>
+      <nodeId>_jbpm-unique-6</nodeId>
+      <nodeName>RiskRate</nodeName>
+      <nodeInstanceId>11</nodeInstanceId>
+    </org.drools.core.audit.event.RuleFlowNodeLogEvent>
+    <org.drools.core.audit.event.RuleFlowNodeLogEvent>
+      <type>27</type>
+      <processId>applycheck</processId>
+      <processName>applycheck Process</processName>
+      <processInstanceId>1</processInstanceId>
+      <nodeId>_jbpm-unique-5</nodeId>
+      <nodeName>Gateway</nodeName>
+      <nodeInstanceId>9</nodeInstanceId>
+    </org.drools.core.audit.event.RuleFlowNodeLogEvent>
+    <org.drools.core.audit.event.RuleFlowNodeLogEvent>
+      <type>25</type>
+      <processId>applycheck</processId>
+      <processName>applycheck Process</processName>
+      <processInstanceId>1</processInstanceId>
+      <nodeId>_jbpm-unique-5</nodeId>
+      <nodeName>Gateway</nodeName>
+      <nodeInstanceId>9</nodeInstanceId>
+    </org.drools.core.audit.event.RuleFlowNodeLogEvent>
+    <org.drools.core.audit.event.RuleFlowNodeLogEvent>
+      <type>27</type>
+      <processId>applycheck</processId>
+      <processName>applycheck Process</processName>
+      <processInstanceId>1</processInstanceId>
+      <nodeId>_jbpm-unique-3</nodeId>
+      <nodeName>RiskLevel</nodeName>
+      <nodeInstanceId>8</nodeInstanceId>
+    </org.drools.core.audit.event.RuleFlowNodeLogEvent>
+    <org.drools.core.audit.event.ActivationLogEvent>
+      <type>6</type>
+      <activationId>RISKRATE1 [2, 1]</activationId>
+      <rule>RISKRATE1</rule>
+      <declarations>$model=com.sample.DecisionEngineInputMessage@44e5b006; $rule=com.sample.DecisionEngineRuleManager@7ba25bd</declarations>
+      <ruleFlowGroup>riskRate</ruleFlowGroup>
+      <factHandleIds>1,2</factHandleIds>
+    </org.drools.core.audit.event.ActivationLogEvent>
+    <org.drools.core.audit.event.ActivationLogEvent>
+      <type>7</type>
+      <activationId>RISKRATE1 [2, 1]</activationId>
+      <rule>RISKRATE1</rule>
+      <declarations>$model=com.sample.DecisionEngineInputMessage@44e5b006; $rule=com.sample.DecisionEngineRuleManager@7ba25bd</declarations>
+      <ruleFlowGroup>riskRate</ruleFlowGroup>
+      <factHandleIds>1,2</factHandleIds>
+    </org.drools.core.audit.event.ActivationLogEvent>
+    <org.drools.core.audit.event.RuleFlowGroupLogEvent>
+      <type>14</type>
+      <groupName>riskRate</groupName>
+      <size>0</size>
+    </org.drools.core.audit.event.RuleFlowGroupLogEvent>
+    <org.drools.core.audit.event.RuleFlowGroupLogEvent>
+      <type>15</type>
+      <groupName>riskRate</groupName>
+      <size>0</size>
+    </org.drools.core.audit.event.RuleFlowGroupLogEvent>
+    <org.drools.core.audit.event.RuleFlowNodeLogEvent>
+      <type>26</type>
+      <processId>applycheck</processId>
+      <processName>applycheck Process</processName>
+      <processInstanceId>1</processInstanceId>
+      <nodeId>_jbpm-unique-6</nodeId>
+      <nodeName>RiskRate</nodeName>
+      <nodeInstanceId>11</nodeInstanceId>
+    </org.drools.core.audit.event.RuleFlowNodeLogEvent>
+    <org.drools.core.audit.event.RuleFlowNodeLogEvent>
+      <type>24</type>
+      <processId>applycheck</processId>
+      <processName>applycheck Process</processName>
+      <processInstanceId>1</processInstanceId>
+      <nodeId>_jbpm-unique-7</nodeId>
+      <nodeName>Gateway</nodeName>
+      <nodeInstanceId>12</nodeInstanceId>
+    </org.drools.core.audit.event.RuleFlowNodeLogEvent>
+    <org.drools.core.audit.event.RuleFlowNodeLogEvent>
+      <type>25</type>
+      <processId>applycheck</processId>
+      <processName>applycheck Process</processName>
+      <processInstanceId>1</processInstanceId>
+      <nodeId>_jbpm-unique-7</nodeId>
+      <nodeName>Gateway</nodeName>
+      <nodeInstanceId>12</nodeInstanceId>
+    </org.drools.core.audit.event.RuleFlowNodeLogEvent>
+    <org.drools.core.audit.event.RuleFlowNodeLogEvent>
+      <type>27</type>
+      <processId>applycheck</processId>
+      <processName>applycheck Process</processName>
+      <processInstanceId>1</processInstanceId>
+      <nodeId>_jbpm-unique-6</nodeId>
+      <nodeName>RiskRate</nodeName>
+      <nodeInstanceId>11</nodeInstanceId>
+    </org.drools.core.audit.event.RuleFlowNodeLogEvent>
+    <org.drools.core.audit.event.ActivationLogEvent>
+      <type>6</type>
+      <activationId>AMOUNTTHRESH1 [2, 1]</activationId>
+      <rule>AMOUNTTHRESH1</rule>
+      <declarations>$model=com.sample.DecisionEngineInputMessage@44e5b006; $rule=com.sample.DecisionEngineRuleManager@7ba25bd</declarations>
+      <ruleFlowGroup>amountThresh</ruleFlowGroup>
+      <factHandleIds>1,2</factHandleIds>
+    </org.drools.core.audit.event.ActivationLogEvent>
+    <org.drools.core.audit.event.ActivationLogEvent>
+      <type>7</type>
+      <activationId>AMOUNTTHRESH1 [2, 1]</activationId>
+      <rule>AMOUNTTHRESH1</rule>
+      <declarations>$model=com.sample.DecisionEngineInputMessage@44e5b006; $rule=com.sample.DecisionEngineRuleManager@7ba25bd</declarations>
+      <ruleFlowGroup>amountThresh</ruleFlowGroup>
+      <factHandleIds>1,2</factHandleIds>
+    </org.drools.core.audit.event.ActivationLogEvent>
+    <org.drools.core.audit.event.RuleFlowGroupLogEvent>
+      <type>14</type>
+      <groupName>amountThresh</groupName>
+      <size>0</size>
+    </org.drools.core.audit.event.RuleFlowGroupLogEvent>
+    <org.drools.core.audit.event.RuleFlowGroupLogEvent>
+      <type>15</type>
+      <groupName>amountThresh</groupName>
+      <size>0</size>
+    </org.drools.core.audit.event.RuleFlowGroupLogEvent>
+    <org.drools.core.audit.event.RuleFlowNodeLogEvent>
+      <type>26</type>
+      <processId>applycheck</processId>
+      <processName>applycheck Process</processName>
+      <processInstanceId>1</processInstanceId>
+      <nodeId>_jbpm-unique-4</nodeId>
+      <nodeName>amountThresh</nodeName>
+      <nodeInstanceId>10</nodeInstanceId>
+    </org.drools.core.audit.event.RuleFlowNodeLogEvent>
+    <org.drools.core.audit.event.RuleFlowNodeLogEvent>
+      <type>24</type>
+      <processId>applycheck</processId>
+      <processName>applycheck Process</processName>
+      <processInstanceId>1</processInstanceId>
+      <nodeId>_jbpm-unique-7</nodeId>
+      <nodeName>Gateway</nodeName>
+      <nodeInstanceId>12</nodeInstanceId>
+    </org.drools.core.audit.event.RuleFlowNodeLogEvent>
+    <org.drools.core.audit.event.RuleFlowNodeLogEvent>
+      <type>26</type>
+      <processId>applycheck</processId>
+      <processName>applycheck Process</processName>
+      <processInstanceId>1</processInstanceId>
+      <nodeId>_jbpm-unique-7</nodeId>
+      <nodeName>Gateway</nodeName>
+      <nodeInstanceId>12</nodeInstanceId>
+    </org.drools.core.audit.event.RuleFlowNodeLogEvent>
+    <org.drools.core.audit.event.RuleFlowNodeLogEvent>
+      <type>24</type>
+      <processId>applycheck</processId>
+      <processName>applycheck Process</processName>
+      <processInstanceId>1</processInstanceId>
+      <nodeId>_jbpm-unique-20</nodeId>
+      <nodeName>FinalAmount</nodeName>
+      <nodeInstanceId>13</nodeInstanceId>
+    </org.drools.core.audit.event.RuleFlowNodeLogEvent>
+    <org.drools.core.audit.event.RuleFlowGroupLogEvent>
+      <type>12</type>
+      <groupName>finalAmount</groupName>
+      <size>1</size>
+    </org.drools.core.audit.event.RuleFlowGroupLogEvent>
+    <org.drools.core.audit.event.RuleFlowGroupLogEvent>
+      <type>13</type>
+      <groupName>finalAmount</groupName>
+      <size>1</size>
+    </org.drools.core.audit.event.RuleFlowGroupLogEvent>
+    <org.drools.core.audit.event.RuleFlowNodeLogEvent>
+      <type>25</type>
+      <processId>applycheck</processId>
+      <processName>applycheck Process</processName>
+      <processInstanceId>1</processInstanceId>
+      <nodeId>_jbpm-unique-20</nodeId>
+      <nodeName>FinalAmount</nodeName>
+      <nodeInstanceId>13</nodeInstanceId>
+    </org.drools.core.audit.event.RuleFlowNodeLogEvent>
+    <org.drools.core.audit.event.RuleFlowNodeLogEvent>
+      <type>27</type>
+      <processId>applycheck</processId>
+      <processName>applycheck Process</processName>
+      <processInstanceId>1</processInstanceId>
+      <nodeId>_jbpm-unique-7</nodeId>
+      <nodeName>Gateway</nodeName>
+      <nodeInstanceId>12</nodeInstanceId>
+    </org.drools.core.audit.event.RuleFlowNodeLogEvent>
+    <org.drools.core.audit.event.RuleFlowNodeLogEvent>
+      <type>25</type>
+      <processId>applycheck</processId>
+      <processName>applycheck Process</processName>
+      <processInstanceId>1</processInstanceId>
+      <nodeId>_jbpm-unique-7</nodeId>
+      <nodeName>Gateway</nodeName>
+      <nodeInstanceId>12</nodeInstanceId>
+    </org.drools.core.audit.event.RuleFlowNodeLogEvent>
+    <org.drools.core.audit.event.RuleFlowNodeLogEvent>
+      <type>27</type>
+      <processId>applycheck</processId>
+      <processName>applycheck Process</processName>
+      <processInstanceId>1</processInstanceId>
+      <nodeId>_jbpm-unique-4</nodeId>
+      <nodeName>amountThresh</nodeName>
+      <nodeInstanceId>10</nodeInstanceId>
+    </org.drools.core.audit.event.RuleFlowNodeLogEvent>
+    <org.drools.core.audit.event.ActivationLogEvent>
+      <type>6</type>
+      <activationId>FINALAMOUNT [2, 1]</activationId>
+      <rule>FINALAMOUNT</rule>
+      <declarations>$model=com.sample.DecisionEngineInputMessage@44e5b006; max=0</declarations>
+      <ruleFlowGroup>finalAmount</ruleFlowGroup>
+      <factHandleIds>1,2</factHandleIds>
+    </org.drools.core.audit.event.ActivationLogEvent>
+    <org.drools.core.audit.event.ActivationLogEvent>
+      <type>7</type>
+      <activationId>FINALAMOUNT [2, 1]</activationId>
+      <rule>FINALAMOUNT</rule>
+      <declarations>$model=com.sample.DecisionEngineInputMessage@44e5b006; max=0</declarations>
+      <ruleFlowGroup>finalAmount</ruleFlowGroup>
+      <factHandleIds>1,2</factHandleIds>
+    </org.drools.core.audit.event.ActivationLogEvent>
+    <org.drools.core.audit.event.RuleFlowGroupLogEvent>
+      <type>14</type>
+      <groupName>finalAmount</groupName>
+      <size>0</size>
+    </org.drools.core.audit.event.RuleFlowGroupLogEvent>
+    <org.drools.core.audit.event.RuleFlowGroupLogEvent>
+      <type>15</type>
+      <groupName>finalAmount</groupName>
+      <size>0</size>
+    </org.drools.core.audit.event.RuleFlowGroupLogEvent>
+    <org.drools.core.audit.event.RuleFlowNodeLogEvent>
+      <type>26</type>
+      <processId>applycheck</processId>
+      <processName>applycheck Process</processName>
+      <processInstanceId>1</processInstanceId>
+      <nodeId>_jbpm-unique-20</nodeId>
+      <nodeName>FinalAmount</nodeName>
+      <nodeInstanceId>13</nodeInstanceId>
+    </org.drools.core.audit.event.RuleFlowNodeLogEvent>
+    <org.drools.core.audit.event.RuleFlowNodeLogEvent>
+      <type>24</type>
+      <processId>applycheck</processId>
+      <processName>applycheck Process</processName>
+      <processInstanceId>1</processInstanceId>
+      <nodeId>UniqueId</nodeId>
+      <nodeName>End</nodeName>
+      <nodeInstanceId>14</nodeInstanceId>
+    </org.drools.core.audit.event.RuleFlowNodeLogEvent>
+    <org.drools.core.audit.event.RuleFlowNodeLogEvent>
+      <type>26</type>
+      <processId>applycheck</processId>
+      <processName>applycheck Process</processName>
+      <processInstanceId>1</processInstanceId>
+      <nodeId>UniqueId</nodeId>
+      <nodeName>End</nodeName>
+      <nodeInstanceId>14</nodeInstanceId>
+    </org.drools.core.audit.event.RuleFlowNodeLogEvent>
+    <org.drools.core.audit.event.RuleFlowLogEvent>
+      <type>10</type>
+      <processId>applycheck</processId>
+      <processName>applycheck Process</processName>
+      <processInstanceId>1</processInstanceId>
+    </org.drools.core.audit.event.RuleFlowLogEvent>
+    <org.drools.core.audit.event.RuleFlowLogEvent>
+      <type>11</type>
+      <processId>applycheck</processId>
+      <processName>applycheck Process</processName>
+      <processInstanceId>1</processInstanceId>
+    </org.drools.core.audit.event.RuleFlowLogEvent>
+    <org.drools.core.audit.event.RuleFlowNodeLogEvent>
+      <type>27</type>
+      <processId>applycheck</processId>
+      <processName>applycheck Process</processName>
+      <processInstanceId>1</processInstanceId>
+      <nodeId>UniqueId</nodeId>
+      <nodeName>End</nodeName>
+      <nodeInstanceId>14</nodeInstanceId>
+    </org.drools.core.audit.event.RuleFlowNodeLogEvent>
+    <org.drools.core.audit.event.RuleFlowNodeLogEvent>
+      <type>25</type>
+      <processId>applycheck</processId>
+      <processName>applycheck Process</processName>
+      <processInstanceId>1</processInstanceId>
+      <nodeId>UniqueId</nodeId>
+      <nodeName>End</nodeName>
+      <nodeInstanceId>14</nodeInstanceId>
+    </org.drools.core.audit.event.RuleFlowNodeLogEvent>
+    <org.drools.core.audit.event.RuleFlowNodeLogEvent>
+      <type>27</type>
+      <processId>applycheck</processId>
+      <processName>applycheck Process</processName>
+      <processInstanceId>1</processInstanceId>
+      <nodeId>_jbpm-unique-20</nodeId>
+      <nodeName>FinalAmount</nodeName>
+      <nodeInstanceId>13</nodeInstanceId>
+    </org.drools.core.audit.event.RuleFlowNodeLogEvent>
+  </events>
+  <engine>PHREAK</engine>
+</org.drools.core.audit.WorkingMemoryLog>
+</object-stream>

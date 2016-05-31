@@ -1,0 +1,84 @@
+package com.sample.appDecisionEngine
+
+import com.sample.DecisionEngineInputMessage;
+import com.sample.DecisionEngineRuleManager;
+
+rule "RISKLEVEL1"
+ruleflow-group "riskLevel"
+lock-on-active true
+	when
+		$rule : DecisionEngineRuleManager()
+		$model : DecisionEngineInputMessage(m:totalScore)
+		eval($rule.getScore("RISKLEVEL1",1) > 0)
+		eval($rule.getMinValue() <= m)
+   	then
+   		$rule.getScore(drools.getRule().getName(),1);
+   		$model.setRiskLevel($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+   		update($rule);
+   		update($model);
+end
+
+rule "RISKLEVEL2"
+ruleflow-group "riskLevel"
+lock-on-active true
+	when
+		$rule : DecisionEngineRuleManager()
+		$model : DecisionEngineInputMessage(m:totalScore)
+		eval($rule.getScore("RISKLEVEL2",1) > 0)
+		eval($rule.getMinValue() <= m && m < $rule.getMaxValue())
+   	then
+   		$rule.getScore(drools.getRule().getName(),1);
+   		$model.setRiskLevel($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+   		update($rule);
+   		update($model);
+end
+
+rule "RISKLEVEL3"
+ruleflow-group "riskLevel"
+lock-on-active true
+	when
+		$rule : DecisionEngineRuleManager()
+		$model : DecisionEngineInputMessage(m:totalScore)
+		eval($rule.getScore("RISKLEVEL3",1) > 0)
+		eval($rule.getMinValue() <= m && m < $rule.getMaxValue())
+	then
+   		$rule.getScore(drools.getRule().getName(),1);
+   		$model.setRiskLevel($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+   		update($rule);
+   		update($model);
+end
+
+rule "RISKLEVEL4"
+ruleflow-group "riskLevel"
+lock-on-active true
+	when
+		$rule : DecisionEngineRuleManager()
+		$model : DecisionEngineInputMessage(m:totalScore)
+		eval($rule.getScore("RISKLEVEL4",1) > 0)
+		eval($rule.getMinValue() <= m && m < $rule.getMaxValue())
+   	then
+   		$rule.getScore(drools.getRule().getName(),1);
+   		$model.setRiskLevel($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+   		update($rule);
+   		update($model);
+end
+
+rule "RISKLEVEL5"
+ruleflow-group "riskLevel"
+lock-on-active true
+	when
+		$rule : DecisionEngineRuleManager()
+		$model : DecisionEngineInputMessage(m:totalScore)
+		eval($rule.getScore("RISKLEVEL5",1) > 0)
+		eval(m < $rule.getMaxValue())
+   	then
+   		$rule.getScore(drools.getRule().getName(),1);
+   		$model.setRiskLevel($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+   		update($rule);
+   		update($model);
+end

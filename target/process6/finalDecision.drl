@@ -1,0 +1,35 @@
+package com.sample
+
+import java.util.List;
+import com.sample.DecisionEngineInputMessage;
+
+function String computeScore(List risks){
+	int j = 1;
+	String result = "";
+	for(int i = 0; i<risks.size(); i++){
+		if ((Integer)risks.get(i) > j)
+			j = (Integer)risks.get(i);
+	}
+	if (j == 3)
+		result = "reject";
+	else if(j == 2)
+		result = "review";
+	else if(j == 1)
+		result = "accept";
+	System.out.println("最终的结果是："+result);
+	return result;
+}
+
+rule "DECISION"
+//ruleflow-group "PolicyRule"
+salience 90
+lock-on-active true
+// 设定年龄段1
+	when
+		eval(printString("已经检测到测试的规则3"))
+		$model : DecisionEngineInputMessage(m: policyRuleResult)
+   	then
+   		System.out.println("已经执行到测试的规则3");
+   		computeScore(m);
+end
+

@@ -1,0 +1,76 @@
+package com.sample.appDecisionEngine
+
+import com.sample.DecisionEngineInputMessage;
+import com.sample.DecisionEngineRuleManager;
+
+rule "AMOUNTTHRESH1"
+ruleflow-group "amountThresh"
+salience 0
+lock-on-active true
+	when
+		$rule : DecisionEngineRuleManager()
+		$model : DecisionEngineInputMessage(m:riskLevel)
+		eval(m == 1)
+   	then
+   		$rule.getScore(drools.getRule().getName(),1);
+   		$model.setAmountThresholdMin($rule.getMinValue());
+   		$model.setAmountThresholdMax($rule.getMaxValue());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "AMOUNTTHRESH2"
+ruleflow-group "amountThresh"
+salience 0
+lock-on-active true
+	when
+		$rule : DecisionEngineRuleManager()
+		$model : DecisionEngineInputMessage(m:riskLevel)
+		eval(m == 2)
+   	then
+   		$rule.getScore(drools.getRule().getName(),1);
+   		$model.setAmountThresholdMin($rule.getMinValue());
+   		$model.setAmountThresholdMax($rule.getMaxValue());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "AMOUNTTHRESH3"
+ruleflow-group "amountThresh"
+lock-on-active true
+	when
+		$rule : DecisionEngineRuleManager()
+		$model : DecisionEngineInputMessage(m:riskLevel)
+		eval(m == 3)
+   	then
+   		$rule.getScore(drools.getRule().getName(),1);
+   		$model.setAmountThresholdMin($rule.getMinValue());
+   		$model.setAmountThresholdMax($rule.getMaxValue());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "AMOUNTTHRESH4"
+ruleflow-group "amountThresh"
+lock-on-active true
+	when
+		$rule : DecisionEngineRuleManager()
+		$model : DecisionEngineInputMessage(m:riskLevel)
+		eval(m == 4)
+   	then
+   		$rule.getScore(drools.getRule().getName(),1);
+   		$model.setAmountThresholdMin($rule.getMinValue());
+   		$model.setAmountThresholdMax($rule.getMaxValue());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "AMOUNTTHRESH5"
+ruleflow-group "amountThresh"
+lock-on-active true
+	when
+		$rule : DecisionEngineRuleManager()
+		$model : DecisionEngineInputMessage(m:riskLevel)
+		eval(m == 5)
+   	then
+   		$rule.getScore(drools.getRule().getName(),1);
+   		$model.setAmountThresholdMin($rule.getMinValue());
+   		$model.setAmountThresholdMax($rule.getMaxValue());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end

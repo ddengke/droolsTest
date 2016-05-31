@@ -1,0 +1,40 @@
+package com.sample
+
+import java.util.ArrayList;
+import java.util.List;
+import com.sample.DecisionEngineInputMessage;
+
+function boolean printString(String test){
+System.out.println(test);
+return true;
+}
+
+rule "INCOME1"
+//ruleflow-group "PolicyRule"
+salience 99
+lock-on-active true
+// 设定年龄段1
+	when
+		eval(printString("已经检测到测试的规则1"))
+		$model : DecisionEngineInputMessage()
+   	then
+   		System.out.println("已经执行到测试的规则1");
+   		$model.addPolicyRuleResult(3);
+   		$model.addPolicyRuleResult(2);
+   		update($model);
+end
+
+rule "INCOME2"
+//ruleflow-group "PolicyRule"
+salience 98
+lock-on-active true
+// 设定年龄段1
+	when
+		eval(printString("已经检测到测试的规则2"))
+		$model : DecisionEngineInputMessage()
+   	then
+   		System.out.println("已经执行到测试的规则2");
+   		$model.addPolicyRuleResult(1);
+   		update($model);
+end
+

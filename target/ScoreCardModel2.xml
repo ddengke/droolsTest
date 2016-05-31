@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="gbk"?>
+<Rules>
+	<category type="appScoreCard">
+		<rule code="APP_AGE1" score="9" description="Age is between 18 and 24" min="18" max="24"/>
+		<rule code="APP_AGE2" score="17" description="Age is between 25 and 35" min="25" max="35"/>
+		<rule code="APP_AGE3" score="15" description="Age is between 36 and 45" min="36" max="45"/>
+		<rule code="APP_AGE4" score="13" description="Age is between 46 and 55" min="46" max="55"/>
+		<rule code="APP_AGE5" score="11" description="Age is more than 55" min="56" max="-1"/>
+		<rule code="MARRIAGE1" score="38" description="已婚"/>
+		<rule code="MARRIAGE2" score="28" description="单身"/>
+		<rule code="MARRIAGE3" score="18" description="离异"/>
+		<rule code="MARRIAGE4" score="31" description="丧偶"/>
+		<rule code="SEX1" score="15" description="女"/>
+		<rule code="SEX2" score="7" description="男"/>
+		<rule code="app_Education1" score="17" description="高中"/>
+		<rule code="app_Education2" score="22" description="大专"/>
+		<rule code="app_Education3" score="27" description="本科或硕士"/>
+		<rule code="app_Education4" score="29" description="博士"/>
+		<rule code="app_Education5" score="14" description="其它"/>
+		<rule code="HUKOU1" score="20" description="本地户口"/>
+		<rule code="HUKOU2" score="7" description="外地户口"/>
+		<rule code="COMPANYNATURE1" score="48" description="政府机关"/>
+		<rule code="COMPANYNATURE2" score="48" description="事业单位"/>
+		<rule code="COMPANYNATURE3" score="43" description="国有企业"/>
+		<rule code="COMPANYNATURE4" score="41" description="外资/合资企业"/>
+		<rule code="COMPANYNATURE5" score="31" description="私营企业"/>
+		<rule code="COMPANYNATURE6" score="23" description="其它"/>
+		<rule code="WORKEXPERIENCE1" score="29" description="大于等于8年" min="8" max="-1"/>
+		<rule code="WORKEXPERIENCE2" score="27" description="工作年限大于等于5小于8年" min="5" max="8"/>
+		<rule code="WORKEXPERIENCE3" score="24" description="工作年限3-5年" min="3" max="5"/>
+		<rule code="WORKEXPERIENCE4" score="22" description="工作年限1-3年" min="1" max="3"/>
+		<rule code="WORKEXPERIENCE5" score="14" description="小于1年" min="-1" max="1"/>
+		<rule code="TITLE1" score="37" description="公司高层管理人员或同等职位"/>
+		<rule code="TITLE2" score="29" description="公司中层管理人员或同等职位"/>
+		<rule code="TITLE3" score="19" description="公司基层管理人员或同等职位"/>
+		<rule code="TITLE4" score="19" description="自雇人士(私营业主/个体户) "/>
+		<rule code="TITLE5" score="14" description="员工或其它"/>
+		<rule code="PAYROLL1" score="38" description="工资卡+查询密码验证通过"/>
+		<rule code="PAYROLL2" score="18" description="社保+密码验证通过"/>
+		<rule code="PAYROLL3" score="18" description="公积金+密码验证通过"/>
+		<rule code="PAYROLL4" score="18" description="工牌拍照"/>
+		<rule code="PAYROLL5" score="18" description="银行工资流水"/>
+		<rule code="PAYROLL6" score="18" description="公司收入证明"/>
+		<rule code="HASHOUSE1" score="90" description="租房"/>
+		<rule code="HASHOUSE2" score="190" description="公司房"/>
+		<rule code="HASHOUSE3" score="190" description="直属亲戚房"/>
+		<rule code="HASHOUSE4" score="190" description="有房无按揭"/>
+		<rule code="HASHOUSE5" score="190" description="有房无按揭"/>
+		<rule code="HASHOUSE6" score="190" description="小产权房"/>
+		<rule code="HASHOUSE7" score="190" description="公房"/>
+		<rule code="HASHOUSE8" score="190" description="宅基地"/>
+		<rule code="HASHOUSE9" score="190" description="其它"/>
+		<rule code="HASCAR1" score="45" description="无车"/>
+		<rule code="HASCAR2" score="95" description="有车"/>
+		<rule code="HASHOMESTEAD1" score="23" description="无宅基地"/>
+		<rule code="HASHOMESTEAD2" score="48" description="有宅基地"/>
+		<rule code="HASINSURANCE1" score="12" description="无保险"/>
+		<rule code="HASINSURANCE2" score="25" description="有保险"/>
+		<rule code="HASNATIONALDEBT1" score="12" description="无国债"/>
+		<rule code="HASNATIONALDEBT2" score="25" description="有国债"/>
+		<rule code="HASFINPROD1" score="12" description="无理财产品"/>
+		<rule code="HASFINPROD2" score="25" description="有理财产品"/>
+		<rule code="MOBILELIFE1" score="14" description="小于6个月或缺失" min="-1" max="6"/>
+		<rule code="MOBILELIFE2" score="19" description="6个月-1年" min="6" max="12"/>
+		<rule code="MOBILELIFE3" score="24" description="1-2年" min="12" max="24"/>
+		<rule code="MOBILELIFE4" score="29" description="大于2年" min="24" max="-1"/>
+		<rule code="RESIDENCEMONTH1" score="14" description="小于6个月或缺失" min="-1" max="6"/>
+		<rule code="RESIDENCEMONTH2" score="19" description="6个月-1年" min="6" max="12"/>
+		<rule code="RESIDENCEMONTH3" score="24" description="1-2年" min="12" max="24"/>
+		<rule code="RESIDENCEMONTH4" score="29" description="大于2年" min="24" max="-1"/>
+		<rule code="LOANTERM1" score="18" description="36个月" min="36" max="-1"/>
+		<rule code="LOANTERM2" score="23" description="24个月" min="24" max="-1"/>
+		<rule code="LOANTERM3" score="31" description="12个月" min="12" max="-1"/>
+		<rule code="LOANTERM4" score="38" description="6个月" min="6" max="-1"/>
+		<rule code="DOWNPAYMENTRATE1" score="95" description="首付比例大于等于60%" min="60" max="-1"/>
+		<rule code="DOWNPAYMENTRATE2" score="80" description="首付比例在50%~60%" min="50" max="60"/>
+		<rule code="DOWNPAYMENTRATE3" score="60" description="首付比例在40%~50%" min="40" max="50"/>
+		<rule code="DOWNPAYMENTRATE4" score="48" description="首付比例在30%~40%" min="30" max="40"/>
+		<rule code="DOWNPAYMENTRATE5" score="45" description="首付比例低于30%" min="-1" max="30"/>
+	</category>
+	
+	<category type="riskLevel">	
+		<rule code="RISKLEVEL5" score="5" description="Total score is below 550" min="0" max="550"/>
+		<rule code="RISKLEVEL4" score="4" description="Total score is between 550 and 600" min="550" max="600"/>
+		<rule code="RISKLEVEL3" score="3" description="Total score is between 600 and 650" min="600" max="650"/>
+		<rule code="RISKLEVEL4" score="2" description="Total score is between 650 and 700" min="650" max="700"/>
+		<rule code="RISKLEVEL5" score="1" description="Total score is above 700" min="700" max="-1"/>
+	</category>
+	
+	<category type="amountThreshold">
+		<rule code="AMOUNTTHRESH5" score="5" description="Amount threshold is 0" min="0" max="0"/>
+		<rule code="AMOUNTTHRESH4" score="4" description="Amount threshold is between 2,000 and 5,000" min="2000" max="5000"/>
+		<rule code="AMOUNTTHRESH3" score="3" description="Amount threshold is between 5,000 and 20,000" min="5000" max="20000"/>
+		<rule code="AMOUNTTHRESH2" score="2" description="Amount threshold is between 20,000 and 50,000" min="20000" max="50000"/>
+		<rule code="AMOUNTTHRESH1" score="1" description="Amount threshold is between 50,000 and 100,000" min="50000" max="100000"/>
+	</category>
+	
+	<category type="riskRate">
+		<rule code="RISKRATE1" score="4" description="High profit and high risk" />
+		<rule code="RISKRATE2" score="12" description="High profit and mid-high risk" />
+		<rule code="RISKRATE3" score="30" description="High profit and middle risk" />
+		<rule code="RISKRATE4" score="30" description="High profit and mid-low risk" />
+		<rule code="RISKRATE5" score="40" description="High profit and low risk" />
+		<rule code="RISKRATE6" score="4" description="Middle profit and high risk" />
+		<rule code="RISKRATE7" score="10" description="Middle profit and mid-high risk" />
+		<rule code="RISKRATE8" score="15" description="Middle profit and middle risk" />
+		<rule code="RISKRATE9" score="30" description="Middle profit and mid-low risk" />
+		<rule code="RISKRATE10" score="40" description="Middle profit and low risk" />
+		<rule code="RISKRATE11" score="4" description="Low profit and high risk" />
+		<rule code="RISKRATE12" score="8" description="Low profit and mid-high risk" />
+		<rule code="RISKRATE13" score="10" description="Low profit and middle risk" />
+		<rule code="RISKRATE14" score="12" description="Low profit and mid-low risk" />
+		<rule code="RISKRATE15" score="15" description="Low profit and low risk" />
+	</category>
+
+</Rules>

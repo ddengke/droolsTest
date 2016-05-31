@@ -1,5 +1,8 @@
 package com.sample;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class DecisionEngineInputMessage {
 	
 	private int totalScore;
@@ -7,68 +10,102 @@ public class DecisionEngineInputMessage {
 	private double riskRate;
 	private int amountThresholdMin;
 	private int amountThresholdMax;
-	private double finalAmount;
+	private double requestedAmount;
+	private double approvedAmount;
 	private int age;
 	private int ageScore;
-	private String marriage;
+	private int marriage;
 	private int marriageScore;
-	private String sex;
+	private int sex;
 	private int sexScore;
-	private String contactInfo;
-	private int contactInfoScore;
-	private String claimedEducation;
-	private int claimedEducationScore;
-	private String certifiedEducation;
-	private int certifiedEducationScore;
-	private String companyType;
-	private int companyTypeScore;
-	private String title;
+	private int education;
+	private int educationScore;
+	private int hukou;
+	private int hukouScore;
+	private int companyNature;
+	private int companyNatureScore;
+	private int title;
 	private int titleScore;
-	private int workingExperience;
-	private int workingExperienceScore;
+	private double workExperience;
+	private int workExperienceScore;
 	private double salary;
 	private int salaryScore;
-	private String shebao;
-	private int shebaoScore;
-	private String gjj;
+	private int payroll;
+	private int payrollScore;
+	private int socialSecurity;
+	private int socialSecurityScore;
+	private int gjj;
 	private int gjjScore;
-	private String hasHouse;
+	private int badge;
+	private int badgeScore;
+	private int wageWater;
+	private int wageWaterScore;
+	private int incomeCert;
+	private int incomeCertScore;
+	private int hasHouse;
 	private int hasHouseScore;
-	private String hasCar;
+	private int hasCar;
 	private int hasCarScore;
-	private String hasCreditCard;
-	private int hasCreditCardScore;
+	private int hasInsurance;
+	private int hasInsuranceScore;
+	private int hasNationalDebt;
+	private int hasNationalDebtScore;
+	private int hasFinProd;
+	private int hasFinProdScore;
 	private int mobileLife;
 	private int mobileLifeScore;
-	private int livingLife;
-	private int livingLifeScore;
+	private int residenceMonth;
+	private int residenceMonthScore;
 	private int loanTerm;
 	private int loanTermScore;
-	private double payRate;
-	private int payRateScore;
+	private double downPaymentRate;
+	private int downPaymentRateScore;
 	private String profitLevel;
 	
+	//policy rule inputs
+	private double currentLoanAmount;
+	private List<Integer> policyRuleResult = new ArrayList<Integer>();
+	private String policyRuleDecision;
 	
 	public void recordRules(String ruleCode, int ruleScore, String ruleDesc){
 		//System.out.println("触发的规则代码: " + ruleCode + "; 规则分值: "+ruleScore+"; 规则描述: "+ruleDesc);
 		//System.out.println("Fired rule \""+ruleCode+"\", score: "+score);
 	}
 	
+	public void addPolicyRuleResult(int ruleResult){
+		policyRuleResult.add(ruleResult);
+	}
+	
 	public void recordRules(String ruleCode, int score){
 		System.out.println("Fired rule \""+ruleCode+"\", score: "+score);
 	}
 	
-
-	public double getFinalAmount() {
-		return finalAmount;
+	public List<Integer> getPolicyRuleResult() {
+		return policyRuleResult;
 	}
 
-	public void setFinalAmount(double finalAmount) {
-		this.finalAmount = finalAmount;
+	public void setPolicyRuleResult(List<Integer> policyRuleResult) {
+		this.policyRuleResult = policyRuleResult;
+	}
+
+	public double getApprovedAmount() {
+		return approvedAmount;
+	}
+
+	public void setApprovedAmount(double approvedAmount) {
+		this.approvedAmount = approvedAmount;
 	}
 
 	public int getTotalScore() {
 		return totalScore;
+	}
+
+	public int getHukouScore() {
+		return hukouScore;
+	}
+
+	public void setHukouScore(int hukouScore) {
+		this.hukouScore = hukouScore;
 	}
 
 	public void setTotalScore(int totalScore) {
@@ -115,6 +152,14 @@ public class DecisionEngineInputMessage {
 		this.age = age;
 	}
 
+	public double getRequestedAmount() {
+		return requestedAmount;
+	}
+
+	public void setRequestedAmount(double requestedAmount) {
+		this.requestedAmount = requestedAmount;
+	}
+
 	public int getAgeScore() {
 		return ageScore;
 	}
@@ -123,11 +168,12 @@ public class DecisionEngineInputMessage {
 		this.ageScore = ageScore;
 	}
 
-	public String getMarriage() {
+
+	public int getMarriage() {
 		return marriage;
 	}
 
-	public void setMarriage(String marriage) {
+	public void setMarriage(int marriage) {
 		this.marriage = marriage;
 	}
 
@@ -139,14 +185,6 @@ public class DecisionEngineInputMessage {
 		this.marriageScore = marriageScore;
 	}
 
-	public String getSex() {
-		return sex;
-	}
-
-	public void setSex(String sex) {
-		this.sex = sex;
-	}
-
 	public int getSexScore() {
 		return sexScore;
 	}
@@ -155,60 +193,12 @@ public class DecisionEngineInputMessage {
 		this.sexScore = sexScore;
 	}
 
-	public String getContactInfo() {
-		return contactInfo;
+	public int getEducationScore() {
+		return educationScore;
 	}
 
-	public void setContactInfo(String contactInfo) {
-		this.contactInfo = contactInfo;
-	}
-
-	public int getContactInfoScore() {
-		return contactInfoScore;
-	}
-
-	public void setContactInfoScore(int contactInfoScore) {
-		this.contactInfoScore = contactInfoScore;
-	}
-
-	public String getClaimedEducation() {
-		return claimedEducation;
-	}
-
-	public void setClaimedEducation(String claimedEducation) {
-		this.claimedEducation = claimedEducation;
-	}
-
-	public int getClaimedEducationScore() {
-		return claimedEducationScore;
-	}
-
-	public void setClaimedEducationScore(int claimedEducationScore) {
-		this.claimedEducationScore = claimedEducationScore;
-	}
-
-	public String getCertifiedEducation() {
-		return certifiedEducation;
-	}
-
-	public void setCertifiedEducation(String certifiedEducation) {
-		this.certifiedEducation = certifiedEducation;
-	}
-
-	public int getCertifiedEducationScore() {
-		return certifiedEducationScore;
-	}
-
-	public void setCertifiedEducationScore(int certifiedEducationScore) {
-		this.certifiedEducationScore = certifiedEducationScore;
-	}
-
-	public String getTitle() {
-		return title;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
+	public void setEducationScore(int educationScore) {
+		this.educationScore = educationScore;
 	}
 
 	public int getTitleScore() {
@@ -219,20 +209,21 @@ public class DecisionEngineInputMessage {
 		this.titleScore = titleScore;
 	}
 
-	public int getWorkingExperience() {
-		return workingExperience;
+
+	public double getWorkExperience() {
+		return workExperience;
 	}
 
-	public void setWorkingExperience(int workingExperience) {
-		this.workingExperience = workingExperience;
+	public void setWorkExperience(double workExperience) {
+		this.workExperience = workExperience;
 	}
 
-	public int getWorkingExperienceScore() {
-		return workingExperienceScore;
+	public int getWorkExperienceScore() {
+		return workExperienceScore;
 	}
 
-	public void setWorkingExperienceScore(int workingExperienceScore) {
-		this.workingExperienceScore = workingExperienceScore;
+	public void setWorkExperienceScore(int workExperienceScore) {
+		this.workExperienceScore = workExperienceScore;
 	}
 
 	public double getSalary() {
@@ -251,44 +242,12 @@ public class DecisionEngineInputMessage {
 		this.salaryScore = salaryScore;
 	}
 
-	public String getShebao() {
-		return shebao;
-	}
-
-	public void setShebao(String shebao) {
-		this.shebao = shebao;
-	}
-
-	public int getShebaoScore() {
-		return shebaoScore;
-	}
-
-	public void setShebaoScore(int shebaoScore) {
-		this.shebaoScore = shebaoScore;
-	}
-
-	public String getGjj() {
-		return gjj;
-	}
-
-	public void setGjj(String gjj) {
-		this.gjj = gjj;
-	}
-
 	public int getGjjScore() {
 		return gjjScore;
 	}
 
 	public void setGjjScore(int gjjScore) {
 		this.gjjScore = gjjScore;
-	}
-
-	public String getHasHouse() {
-		return hasHouse;
-	}
-
-	public void setHasHouse(String hasHouse) {
-		this.hasHouse = hasHouse;
 	}
 
 	public int getHasHouseScore() {
@@ -299,36 +258,12 @@ public class DecisionEngineInputMessage {
 		this.hasHouseScore = hasHouseScore;
 	}
 
-	public String getHasCar() {
-		return hasCar;
-	}
-
-	public void setHasCar(String hasCar) {
-		this.hasCar = hasCar;
-	}
-
 	public int getHasCarScore() {
 		return hasCarScore;
 	}
 
 	public void setHasCarScore(int hasCarScore) {
 		this.hasCarScore = hasCarScore;
-	}
-
-	public String getHasCreditCard() {
-		return hasCreditCard;
-	}
-
-	public void setHasCreditCard(String hasCreditCard) {
-		this.hasCreditCard = hasCreditCard;
-	}
-
-	public int getHasCreditCardScore() {
-		return hasCreditCardScore;
-	}
-
-	public void setHasCreditCardScore(int hasCreditCardScore) {
-		this.hasCreditCardScore = hasCreditCardScore;
 	}
 
 	public int getMobileLife() {
@@ -347,20 +282,20 @@ public class DecisionEngineInputMessage {
 		this.mobileLifeScore = mobileLifeScore;
 	}
 
-	public int getLivingLife() {
-		return livingLife;
+	public int getResidenceMonth() {
+		return residenceMonth;
 	}
 
-	public void setLivingLife(int livingLife) {
-		this.livingLife = livingLife;
+	public void setResidenceMonth(int residenceMonth) {
+		this.residenceMonth = residenceMonth;
 	}
 
-	public int getLivingLifeScore() {
-		return livingLifeScore;
+	public int getResidenceMonthScore() {
+		return residenceMonthScore;
 	}
 
-	public void setLivingLifeScore(int livingLifeScore) {
-		this.livingLifeScore = livingLifeScore;
+	public void setResidenceMonthScore(int residenceMonthScore) {
+		this.residenceMonthScore = residenceMonthScore;
 	}
 
 	public int getLoanTerm() {
@@ -379,36 +314,220 @@ public class DecisionEngineInputMessage {
 		this.loanTermScore = loanTermScore;
 	}
 
-	public double getPayRate() {
-		return payRate;
+	public int getPayrollScore() {
+		return payrollScore;
 	}
 
-	public void setPayRate(double payRate) {
-		this.payRate = payRate;
+	public void setPayrollScore(int payrollScore) {
+		this.payrollScore = payrollScore;
 	}
 
-	public int getPayRateScore() {
-		return payRateScore;
+	public int getBadge() {
+		return badge;
 	}
 
-	public void setPayRateScore(int payRateScore) {
-		this.payRateScore = payRateScore;
+	public void setBadge(int badge) {
+		this.badge = badge;
 	}
 
-	public String getCompanyType() {
-		return companyType;
+	public int getBadgeScore() {
+		return badgeScore;
 	}
 
-	public void setCompanyType(String companyType) {
-		this.companyType = companyType;
+	public void setBadgeScore(int badgeScore) {
+		this.badgeScore = badgeScore;
 	}
 
-	public int getCompanyTypeScore() {
-		return companyTypeScore;
+	public int getWageWater() {
+		return wageWater;
 	}
 
-	public void setCompanyTypeScore(int companyTypeScore) {
-		this.companyTypeScore = companyTypeScore;
+	public void setWageWater(int wageWater) {
+		this.wageWater = wageWater;
+	}
+
+	public int getWageWaterScore() {
+		return wageWaterScore;
+	}
+
+	public void setWageWaterScore(int wageWaterScore) {
+		this.wageWaterScore = wageWaterScore;
+	}
+
+	public int getIncomeCert() {
+		return incomeCert;
+	}
+
+	public void setIncomeCert(int incomeCert) {
+		this.incomeCert = incomeCert;
+	}
+
+	public int getIncomeCertScore() {
+		return incomeCertScore;
+	}
+
+	public void setIncomeCertScore(int incomeCertScore) {
+		this.incomeCertScore = incomeCertScore;
+	}
+
+	public int getSocialSecurityScore() {
+		return socialSecurityScore;
+	}
+
+	public void setSocialSecurityScore(int socialSecurityScore) {
+		this.socialSecurityScore = socialSecurityScore;
+	}
+
+	public int getHasInsuranceScore() {
+		return hasInsuranceScore;
+	}
+
+	public void setHasInsuranceScore(int hasInsuranceScore) {
+		this.hasInsuranceScore = hasInsuranceScore;
+	}
+
+	public int getHasNationalDebtScore() {
+		return hasNationalDebtScore;
+	}
+
+	public void setHasNationalDebtScore(int hasNationalDebtScore) {
+		this.hasNationalDebtScore = hasNationalDebtScore;
+	}
+
+	public int getHasFinProdScore() {
+		return hasFinProdScore;
+	}
+
+	public void setHasFinProdScore(int hasFinProdScore) {
+		this.hasFinProdScore = hasFinProdScore;
+	}
+
+	public double getDownPaymentRate() {
+		return downPaymentRate;
+	}
+
+	public void setDownPaymentRate(double downPaymentRate) {
+		this.downPaymentRate = downPaymentRate;
+	}
+
+	public int getDownPaymentRateScore() {
+		return downPaymentRateScore;
+	}
+
+	public void setDownPaymentRateScore(int downPaymentRateScore) {
+		this.downPaymentRateScore = downPaymentRateScore;
+	}
+
+	public int getSex() {
+		return sex;
+	}
+
+	public void setSex(int sex) {
+		this.sex = sex;
+	}
+
+	public int getEducation() {
+		return education;
+	}
+
+	public void setEducation(int education) {
+		this.education = education;
+	}
+
+	public int getHukou() {
+		return hukou;
+	}
+
+	public void setHukou(int hukou) {
+		this.hukou = hukou;
+	}
+
+	public int getCompanyNature() {
+		return companyNature;
+	}
+
+	public void setCompanyNature(int companyNature) {
+		this.companyNature = companyNature;
+	}
+
+	public int getTitle() {
+		return title;
+	}
+
+	public void setTitle(int title) {
+		this.title = title;
+	}
+
+	public int getPayroll() {
+		return payroll;
+	}
+
+	public void setPayroll(int payroll) {
+		this.payroll = payroll;
+	}
+
+	public int getSocialSecurity() {
+		return socialSecurity;
+	}
+
+	public void setSocialSecurity(int socialSecurity) {
+		this.socialSecurity = socialSecurity;
+	}
+
+	public int getGjj() {
+		return gjj;
+	}
+
+	public void setGjj(int gjj) {
+		this.gjj = gjj;
+	}
+
+	public int getHasHouse() {
+		return hasHouse;
+	}
+
+	public void setHasHouse(int hasHouse) {
+		this.hasHouse = hasHouse;
+	}
+
+	public int getHasCar() {
+		return hasCar;
+	}
+
+	public void setHasCar(int hasCar) {
+		this.hasCar = hasCar;
+	}
+
+	public int getHasInsurance() {
+		return hasInsurance;
+	}
+
+	public void setHasInsurance(int hasInsurance) {
+		this.hasInsurance = hasInsurance;
+	}
+
+	public int getHasNationalDebt() {
+		return hasNationalDebt;
+	}
+
+	public void setHasNationalDebt(int hasNationalDebt) {
+		this.hasNationalDebt = hasNationalDebt;
+	}
+
+	public int getHasFinProd() {
+		return hasFinProd;
+	}
+
+	public void setHasFinProd(int hasFinProd) {
+		this.hasFinProd = hasFinProd;
+	}
+
+	public int getCompanyNatureScore() {
+		return companyNatureScore;
+	}
+
+	public void setCompanyNatureScore(int companyNatureScore) {
+		this.companyNatureScore = companyNatureScore;
 	}
 
 	public String getProfitLevel() {
@@ -417,6 +536,22 @@ public class DecisionEngineInputMessage {
 
 	public void setProfitLevel(String profitLevel) {
 		this.profitLevel = profitLevel;
+	}
+
+	public double getCurrentLoanAmount() {
+		return currentLoanAmount;
+	}
+
+	public void setCurrentLoanAmount(double currentLoanAmount) {
+		this.currentLoanAmount = currentLoanAmount;
+	}
+
+	public String getPolicyRuleDecision() {
+		return policyRuleDecision;
+	}
+
+	public void setPolicyRuleDecision(String policyRuleDecision) {
+		this.policyRuleDecision = policyRuleDecision;
 	}
 
 

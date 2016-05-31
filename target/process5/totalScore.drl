@@ -1,0 +1,47 @@
+package com.sample.appDecisionEngine
+
+import com.sample.DecisionEngineInputMessage;
+import com.sample.DecisionEngineRuleManager;
+
+rule "TOTAL"
+ruleflow-group "TotalScore"
+lock-on-active true
+	when
+		$rule : DecisionEngineRuleManager()
+		$model : DecisionEngineInputMessage()
+   	then
+   		System.out.println("年龄得分："+$model.getAgeScore()+"\n"
+   				+"婚姻得分："+$model.getMarriageScore()+"\n"
+   				+"性别得分："+ $model.getSexScore()+"\n"
+   				+"教育得分："+ $model.getEducationScore()+"\n"
+   				+"户口得分："+$model.getHukouScore()+"\n"
+   				+"公司性质得分"+$model.getCompanyNatureScore()+"\n"
+   				+"工作年限得分"+$model.getWorkExperienceScore()+"\n"
+   				+"职位得分："+$model.getTitleScore()+"\n"
+   				+"工资卡验证得分："+$model.getPayrollScore()+"\n"
+   				+"社保验证得分："+$model.getSocialSecurityScore()+"\n" 
+   				+"公积金验证得分："+$model.getGjjScore()+"\n"
+   				+"工牌拍照得分："+$model.getBadgeScore()+"\n"
+   				+"银行流水得分："+$model.getWageWaterScore()+"\n"
+   				+"收入证明得分："+ $model.getIncomeCertScore()+"\n"
+   				+"是否有住房得分："+$model.getHasHouseScore()+"\n"
+   				+"是否有陈得分："+$model.getHasCarScore()+"\n"
+   				+"是否有保险得分："+$model.getHasInsuranceScore()+"\n"
+   				+"是否有国债得分："+$model.getHasNationalDebtScore()+"\n"
+   				+"是否有理财产品得分："+$model.getHasFinProdScore()+"\n"
+   				+"手机号使用年限得分："+$model.getMobileLifeScore()+"\n"
+   				+"居住年限得分："+$model.getResidenceMonthScore()+"\n"
+   				+"贷款期限得分："+$model.getLoanTermScore()+"\n"
+   				+"首付款比例得分："+$model.getDownPaymentRateScore());
+   		int total = $model.getAgeScore() + $model.getMarriageScore() + $model.getSexScore()
+   				  + $model.getEducationScore() + $model.getHukouScore()+ $model.getCompanyNatureScore()
+   				  + $model.getWorkExperienceScore() + $model.getTitleScore() + $model.getPayrollScore()
+   				  + $model.getSocialSecurityScore() + $model.getGjjScore() + $model.getBadgeScore()
+   				  + $model.getWageWaterScore() + $model.getIncomeCertScore() + $model.getHasHouseScore()
+   				  + $model.getHasCarScore() + $model.getHasInsuranceScore()
+   				  + $model.getHasNationalDebtScore() + $model.getHasFinProdScore() + $model.getMobileLifeScore()
+   				  + $model.getResidenceMonthScore() + $model.getLoanTermScore() + $model.getDownPaymentRateScore();
+   		$model.setTotalScore(total);
+   		update($rule);
+   		update($model);
+end

@@ -13,9 +13,8 @@
              xmlns:tns="http://www.jboss.org/drools">
 
   <itemDefinition id="_taskResult" structureRef="Integer" />
-  <itemDefinition id="null" />
   <itemDefinition id="_testResult" structureRef="Integer" />
-
+  <itemDefinition id="null" />
   <process processType="Private" isExecutable="true" id="sample2" name="Hello World" >
 
     <!-- process variables -->
@@ -44,6 +43,12 @@ System.out.println(kcontext.getNodeInstance().getNodeName() ); </script>
         <terminateEventDefinition />
     </endEvent>
     <callActivity id="_jbpm-unique-0" name="Sub-Process" calledElement="Sub-Process" >
+      <extensionElements>
+        <tns:onExit-script>
+          <tns:script>System.out.println("The testResult value is:" + testResult);
+return testResult &gt; 10;</tns:script>
+        </tns:onExit-script>
+      </extensionElements>
       <ioSpecification>
         <dataOutput id="_jbpm-unique-0_internalTestResultOutput" name="internalTestResult" />
         <inputSet>
@@ -54,6 +59,25 @@ System.out.println(kcontext.getNodeInstance().getNodeName() ); </script>
       </ioSpecification>
       <dataOutputAssociation>
         <sourceRef>_jbpm-unique-0_internalTestResultOutput</sourceRef>
+        <targetRef>testResult</targetRef>
+      </dataOutputAssociation>
+    </callActivity>
+    <callActivity id="_jbpm-unique-23" name="Sub-Process2" calledElement="Sub-Process2" >
+      <extensionElements>
+        <tns:onEntry-script>
+          <tns:script>return testResult &gt;10;</tns:script>
+        </tns:onEntry-script>
+      </extensionElements>
+      <ioSpecification>
+        <dataOutput id="_jbpm-unique-23_internalTestResultOutput" name="internalTestResult" />
+        <inputSet>
+        </inputSet>
+        <outputSet>
+          <dataOutputRefs>_jbpm-unique-23_internalTestResultOutput</dataOutputRefs>
+        </outputSet>
+      </ioSpecification>
+      <dataOutputAssociation>
+        <sourceRef>_jbpm-unique-23_internalTestResultOutput</sourceRef>
         <targetRef>testResult</targetRef>
       </dataOutputAssociation>
     </callActivity>
@@ -68,10 +92,11 @@ System.out.println(kcontext.getNodeInstance().getNodeName() ); </script>
       <conditionExpression xsi:type="tFormalExpression" >return taskResult&gt;=10 &amp;&amp; taskResult &lt;20;</conditionExpression>
     </sequenceFlow>
     <sequenceFlow id="_jbpm-unique-5-_jbpm-unique-12" sourceRef="_jbpm-unique-5" targetRef="_jbpm-unique-12" />
-    <sequenceFlow id="_jbpm-unique-0-_jbpm-unique-17" sourceRef="_jbpm-unique-0" targetRef="_jbpm-unique-17" />
+    <sequenceFlow id="_jbpm-unique-23-_jbpm-unique-17" sourceRef="_jbpm-unique-23" targetRef="_jbpm-unique-17" />
     <sequenceFlow id="_jbpm-unique-4-_jbpm-unique-0" sourceRef="_jbpm-unique-4" targetRef="_jbpm-unique-0" name="age3" tns:priority="1" >
       <conditionExpression xsi:type="tFormalExpression" >return taskResult&gt;=20;</conditionExpression>
     </sequenceFlow>
+    <sequenceFlow id="_jbpm-unique-0-_jbpm-unique-23" sourceRef="_jbpm-unique-0" targetRef="_jbpm-unique-23" />
 
   </process>
 
@@ -96,10 +121,13 @@ System.out.println(kcontext.getNodeInstance().getNodeName() ); </script>
         <dc:Bounds x="479" y="96" width="48" height="48" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="_jbpm-unique-17" >
-        <dc:Bounds x="479" y="227" width="48" height="48" />
+        <dc:Bounds x="481" y="267" width="48" height="48" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="_jbpm-unique-0" >
         <dc:Bounds x="223" y="194" width="110" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_jbpm-unique-23" >
+        <dc:Bounds x="332" y="259" width="110" height="48" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge bpmnElement="_jbpm-unique-4-_2" >
         <di:waypoint x="120" y="120" />
@@ -121,13 +149,17 @@ System.out.println(kcontext.getNodeInstance().getNodeName() ); </script>
         <di:waypoint x="312" y="120" />
         <di:waypoint x="503" y="120" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge bpmnElement="_jbpm-unique-0-_jbpm-unique-17" >
-        <di:waypoint x="278" y="218" />
-        <di:waypoint x="503" y="251" />
+      <bpmndi:BPMNEdge bpmnElement="_jbpm-unique-23-_jbpm-unique-17" >
+        <di:waypoint x="387" y="283" />
+        <di:waypoint x="505" y="291" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="_jbpm-unique-4-_jbpm-unique-0" >
         <di:waypoint x="120" y="120" />
         <di:waypoint x="278" y="218" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_jbpm-unique-0-_jbpm-unique-23" >
+        <di:waypoint x="278" y="218" />
+        <di:waypoint x="387" y="283" />
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>

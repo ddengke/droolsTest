@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.drools.runtime.process.ProcessInstance;
+//import org.drools.runtime.process.ProcessInstance;
 import org.jbpm.workflow.instance.WorkflowProcessInstance;
 import org.kie.api.KieServices;
 import org.kie.api.runtime.KieContainer;

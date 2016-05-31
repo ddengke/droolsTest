@@ -15,4 +15,10 @@
     <kbase name="process4" packages="process4">
         <ksession name="ksession-process4"/>
     </kbase>
+    <kbase name="process5" packages="process5">
+        <ksession name="appDecisionEngine-session"/>
+    </kbase>
+    <kbase name="process6" packages="process6">
+        <ksession name="ksession-process6"/>
+    </kbase>
 </kmodule>

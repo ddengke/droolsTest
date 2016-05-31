@@ -1,0 +1,15 @@
+package com.sample.appDecisionEngine
+
+import com.sample.DecisionEngineInputMessage;
+import com.sample.DecisionEngineRuleManager;
+
+rule "APPROVEDAMOUNT"
+ruleflow-group "approvedAmount"
+lock-on-active true
+	when
+		$rule : DecisionEngineRuleManager()
+		$model : DecisionEngineInputMessage(min:amountThresholdMin, max:amountThresholdMax)
+   	then
+   		double amount = Math.min($model.getSalary() * 12 * $model.getRiskRate() / 100, max);
+   		$model.setApprovedAmount(amount);
+end
