@@ -15,5 +15,4 @@ public class InputMessage {
 			this.testResult = testResult;
 		}
 
-
 }

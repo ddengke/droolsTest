@@ -1,0 +1,277 @@
+package com.credan.carLoanVelocity
+
+import com.credan.po.InputMessage;
+import com.credan.po.RuleManager;
+
+rule "V_MUL_E_APHONE"
+// 同一个申请人手机号码在90天内申请次数>=2次
+lock-on-active true
+	when
+		$rule : RuleManager()
+		eval($rule.getScore("V_MUL_E_APHONE",1) > 0)
+		$model : InputMessage($rule.getMinValue <= sameAppPhoneEvents)
+   	then
+   		$rule.getScore(drools.getRule().getName(),1);
+   		$model.addScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "V_MUL_E_AID"
+// 同一个申请人身份证号在90天内申请次数>=2次
+lock-on-active true
+	when
+		$rule : RuleManager()
+		eval($rule.getScore("V_MUL_E_AID",1) > 0)
+		$model : InputMessage($rule.getMinValue <= sameAppIDEvents)
+   	then
+   		$rule.getScore(drools.getRule().getName(),1);
+   		$model.addScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "V_MUL_E_CAPHONE"
+// 同一个紧急联系人身份证号在90天内申请次数>=2次
+lock-on-active true
+	when
+		$rule : RuleManager()
+		eval($rule.getScore("V_MUL_E_CAPHONE",1) > 0)
+		$model : InputMessage($rule.getMinValue <= sameCoAppPhoneEvents)
+   	then
+   		$rule.getScore(drools.getRule().getName(),1);
+   		$model.addScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "V_MUL_E_AEMAIL"
+// 同一个邮件地址在90天内申请次数>=2次
+lock-on-active true
+	when
+		$rule : RuleManager()
+		eval($rule.getScore("V_MUL_E_AEMAIL",1) > 0)
+		$model : InputMessage($rule.getMinValue <= sameAppEmailEvents)
+   	then
+   		$rule.getScore(drools.getRule().getName(),1);
+   		$model.addScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "V_MUL_E_ACCOUNT"
+// 同一个用户账号在90天内申请次数>=2次
+lock-on-active true
+	when
+		$rule : RuleManager()
+		eval($rule.getScore("V_MUL_E_ACCOUNT",1) > 0)
+		$model : InputMessage($rule.getMinValue <= sameAppAccountEvents)
+   	then
+   		$rule.getScore(drools.getRule().getName(),1);
+   		$model.addScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "V_MUL_E_IP"
+// 同一个IP地址在90天内申请次数>=2次
+lock-on-active true
+	when
+		$rule : RuleManager()
+		eval($rule.getScore("V_MUL_E_IP",1) > 0)
+		$model : InputMessage($rule.getMinValue <= sameAppIPEvents)
+   	then
+   		$rule.getScore(drools.getRule().getName(),1);
+   		$model.addScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "V_MUL_E_DI"
+// 同一个设备指纹在90天内申请次数>=2次
+lock-on-active true
+	when
+		$rule : RuleManager()
+		eval($rule.getScore("V_MUL_E_DI",1) > 0)
+		$model : InputMessage($rule.getMinValue <= sameAppDIEvents)
+   	then
+   		$rule.getScore(drools.getRule().getName(),1);
+   		$model.addScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "V_MUL_IP_DI1"
+// 同一个设备指纹在1小时内IP地址数>=2
+lock-on-active true
+	when
+		$rule : RuleManager()
+		eval($rule.getScore("V_MUL_IP_DI1",1) > 0)
+		$model : InputMessage($rule.getMinValue <= sameAppDIIPs1)
+   	then
+   		$rule.getScore(drools.getRule().getName(),1);
+   		$model.addScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "V_MUL_IP_DI2"
+// 同一个设备指纹在24小时内IP地址数>=3
+lock-on-active true
+	when
+		$rule : RuleManager()
+		eval($rule.getScore("V_MUL_IP_DI2",1) > 0)
+		$model : InputMessage($rule.getMinValue <= sameAppDIIPs2)
+   	then
+   		$rule.getScore(drools.getRule().getName(),1);
+   		$model.addScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "V_MUL_IP_DI3"
+// 同一个设备指纹在48小时内IP地址数>=4
+lock-on-active true
+	when
+		$rule : RuleManager()
+		eval($rule.getScore("V_MUL_IP_DI3",1) > 0)
+		$model : InputMessage($rule.getMinValue <= sameAppDIIPs3)
+   	then
+   		$rule.getScore(drools.getRule().getName(),1);
+   		$model.addScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "V_MUL_ID_DI"
+// 同一个设备指纹在168小时内身份证号>=2
+lock-on-active true
+	when
+		$rule : RuleManager()
+		eval($rule.getScore("V_MUL_ID_DI",1) > 0)
+		$model : InputMessage($rule.getMinValue <= sameAppDIIDs)
+   	then
+   		$rule.getScore(drools.getRule().getName(),1);
+   		$model.addScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "V_MUL_ACCOUNT_DI"
+// 同一个设备指纹在168小时内关联多个账号
+lock-on-active true
+	when
+		$rule : RuleManager()
+		eval($rule.getScore("V_MUL_ACCOUNT_DI",1) > 0)
+		$model : InputMessage($rule.getMinValue <= multAccountperDI)
+   	then
+   		$rule.getScore(drools.getRule().getName(),1);
+   		$model.addScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "V_MUL_EMAIL_DI1"
+// 同一个设备指纹在1小时内关联多个邮件地址
+lock-on-active true
+	when
+		$rule : RuleManager()
+		eval($rule.getScore("V_MUL_EMAIL_DI1",1) > 0)
+		$model : InputMessage($rule.getMinValue <= multEmailperID1)
+   	then
+   		$rule.getScore(drools.getRule().getName(),1);
+   		$model.addScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "V_MUL_EMAIL_DI2"
+// 同一个设备指纹在24小时内关联多个邮件地址
+lock-on-active true
+	when
+		$rule : RuleManager()
+		eval($rule.getScore("V_MUL_EMAIL_DI2",1) > 0)
+		$model : InputMessage($rule.getMinValue <= multEmailperID2)
+   	then
+   		$rule.getScore(drools.getRule().getName(),1);
+   		$model.addScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "V_MUL_EMAIL_DI3"
+// 同一个设备指纹在48小时内关联多个邮件地址
+lock-on-active true
+	when
+		$rule : RuleManager()
+		eval($rule.getScore("V_MUL_EMAIL_DI3",1) > 0)
+		$model : InputMessage($rule.getMinValue <= multEmailperID3)
+   	then
+   		$rule.getScore(drools.getRule().getName(),1);
+   		$model.addScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "V_MUL_EMAIL_DI4"
+// 同一个设备指纹在168小时内关联多个邮件地址
+lock-on-active true
+	when
+		$rule : RuleManager()
+		eval($rule.getScore("V_MUL_EMAIL_DI4",1) > 0)
+		$model : InputMessage($rule.getMinValue <= multEmailperID4)
+   	then
+   		$rule.getScore(drools.getRule().getName(),1);
+   		$model.addScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "V_MUL_HADD_DI"
+// 同一个身份证在168小时内关联多个家庭地址
+lock-on-active true
+	when
+		$rule : RuleManager()
+		eval($rule.getScore("V_MUL_HADD_DI",1) > 0)
+		$model : InputMessage($rule.getMinValue <= multAddperDI)
+   	then
+   		$rule.getScore(drools.getRule().getName(),1);
+   		$model.addScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "V_MUL_ID_ACCOUNT1"
+// 同一个账户在1小时内关联多个身份证号
+lock-on-active true
+	when
+		$rule : RuleManager()
+		eval($rule.getScore("V_MUL_ID_ACCOUNT1",1) > 0)
+		$model : InputMessage($rule.getMinValue <= multIDperAccount1)
+   	then
+   		$rule.getScore(drools.getRule().getName(),1);
+   		$model.addScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "V_MUL_ID_ACCOUNT2"
+// 同一个账户在24小时内关联多个身份证号
+lock-on-active true
+	when
+		$rule : RuleManager()
+		eval($rule.getScore("V_MUL_ID_ACCOUNT2",1) > 0)
+		$model : InputMessage($rule.getMinValue <= multIDperAccount2)
+   	then
+   		$rule.getScore(drools.getRule().getName(),1);
+   		$model.addScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "V_MUL_ID_ACCOUNT3"
+// 同一个账户在48小时内关联多个身份证号
+lock-on-active true
+	when
+		$rule : RuleManager()
+		eval($rule.getScore("V_MUL_ID_ACCOUNT3",1) > 0)
+		$model : InputMessage($rule.getMinValue <= multIDperAccount3)
+   	then
+   		$rule.getScore(drools.getRule().getName(),1);
+   		$model.addScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "V_MUL_ID_ACCOUNT4"
+// 同一个账户在168小时内关联多个身份证号
+lock-on-active true
+	when
+		$rule : RuleManager()
+		eval($rule.getScore("V_MUL_ID_ACCOUNT4",1) > 0)
+		$model : InputMessage($rule.getMinValue <= multIDperAccount4)
+   	then
+   		$rule.getScore(drools.getRule().getName(),1);
+   		$model.addScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
