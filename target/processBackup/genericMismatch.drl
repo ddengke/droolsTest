@@ -1,0 +1,69 @@
+package com.credan.generalMismatch
+
+import java.util.Map;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map.Entry;
+import java.util.ArrayList;
+import com.credan.po.InputMessage;
+import com.credan.po.RuleManager;
+
+rule "MIS_PHONE_AMOUNT"
+// 申请人手机号码与收件人手机号码不一致并且金额>=1,500
+lock-on-active true
+	when
+		$model : InputMessage(appPhone != recPhone && amount >= 1500)
+		$rule : RuleManager()
+   	then
+   		$rule.setRuleScore($rule.getScore(drools.getRule().getName()));
+   		$model.addScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "MIS_NAME"
+// 申请人和收件人姓名不一致
+lock-on-active true
+	when
+		$model : InputMessage(appName != recName)
+		$rule : RuleManager()
+   	then
+   		$rule.setRuleScore($rule.getScore(drools.getRule().getName()));
+   		$model.addScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "MIS_HOMECITY_PHONECITY"
+// 申请人手机号所在城市与住宅电话所在城市不一致
+lock-on-active true
+	when
+		$model : InputMessage(appMobileCity != appHomePhoneCity)
+		$rule : RuleManager()
+   	then
+   		$rule.setRuleScore($rule.getScore(drools.getRule().getName()));
+   		$model.addScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "MIS_ADD"
+// 申请人家庭地址与送货地址不一致
+lock-on-active true
+	when
+		$model : InputMessage(appHomeAddr != recAddr)
+		$rule : RuleManager()
+   	then
+   		$rule.setRuleScore($rule.getScore(drools.getRule().getName()));
+   		$model.addScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end
+
+rule "MIS_HOMECITY_IP"
+// 申请人家庭地址所在城市与IP地址所在城市不一致
+lock-on-active true
+	when
+		$model : InputMessage(appHomeCity != trueIPCity)
+		$rule : RuleManager()
+   	then
+   		$rule.setRuleScore($rule.getScore(drools.getRule().getName()));
+   		$model.addScore($rule.getRuleScore());
+   		$model.recordRules(drools.getRule().getName(),$rule.getRuleScore(), $rule.getRuleDesc());
+end

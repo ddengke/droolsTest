@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="gbk"?>
+<Rules>
+	<category type="posNegative">
+		<rule code="EARLY_PN_N_APPID" score="3" description="Negative ID Number, reject" />
+		<rule code="EARLY_PN_N_APHONE" score="3" description="Negative Applicant Phone, reject" />
+		<rule code="EARLY_PN_N_IP" score="2" description="Negative IP address, review" />
+		<rule code="EARLY_PN_N_DI" score="3" description="Negative Device ID, reject" />
+	</category>
+	<category type="threshold">
+		<rule code="EARLY_TH_AMOUNT" score="3" description="Required loan amount exceeds threshold, reject" min="-1" max="20000" />
+	</category>
+	<category type="policy">
+		<rule code="EARLY_POLICY_IP" score="3" description="True IP address is not in China, reject" />
+		<rule code="EARLY_POLICY_AGE" score="3" description="Applicant age is not in policy range, reject" min="18" max="55"/>
+		<rule code="EARLY_POLICY_TIME" score="3" description="Logon during abnormal time, reject" min="18" max="21" />
+	</category>
+	
+	<category type="velocity">
+		<rule code="EARLY_V_MUL_E_APHONE1" score="3" description="reject" min="3" max="-1"/>
+		<rule code="EARLY_V_MUL_E_APHONE2" score="3" description="reject" min="5" max="-1"/>
+	</category>
+
+</Rules>

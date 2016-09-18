@@ -1,7 +1,7 @@
-package com.credan.carLoanVelocity
+package com.credan.AOFraudRules.carLoanVelocity
 
-import com.credan.po.InputMessage;
-import com.credan.po.RuleManager;
+import com.credan.model.riskMgr.FraudInputMessage;
+import com.credan.model.po.RuleManager;
 
 rule "V_MUL_E_APHONE"
 // 同一个申请人手机号码在90天内申请次数>=2次

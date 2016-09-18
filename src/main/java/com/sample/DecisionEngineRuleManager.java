@@ -104,6 +104,12 @@ public class DecisionEngineRuleManager {
 		 return ruleScore;
 	 }
 	
+	public int compareStr(String addr1, String addr2){
+		int result = 0;
+		
+		return result;
+	}
+	
 	public int getScore(String code, int mode){
 		 File f = new File(modelName);
 //		File f = new File("CarLoanFraudModel.xml");
